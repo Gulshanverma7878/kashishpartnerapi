@@ -197,50 +197,51 @@ const Sidebar = ({
               )}
             </button>
 
-            {(sidebarOpen || hoveredSidebar) && cscOpen && (
-              <ul className="ml-8 mt-2 space-y-1">
-                <li>
-                  <Link
-                    href="/csc/history"
-                    className="block px-3 py-2 rounded hover:bg-blue-100"
-                  >
-                    CSC History
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/loginpage"
-                    className="block px-3 py-2 rounded hover:bg-blue-100"
-                  >
-                    Login
-                  </Link>
-                </li>
-                 <li>
-                  <Link
-                    href="/csc/cardmanage"
-                    className="block px-3 py-2 rounded hover:bg-blue-100"
-                  >
-                    Cards Management
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/csc/transaction"
-                    className="block px-3 py-2 rounded hover:bg-blue-100"
-                  >
-                    Transaction
-                  </Link>
-                  <li>
-                  <Link
-                    href="/csc/topup"
-                    className="block px-3 py-2 rounded hover:bg-blue-100"
-                  >
-                    TopUp History
-                  </Link>
-                </li>
-                </li>
-              </ul>
-            )}
+           {(sidebarOpen || hoveredSidebar) && cscOpen && (
+  <ul className="ml-8 mt-2 space-y-1">
+    <li>
+      <Link
+        href="/csc/history"
+        className="block px-3 py-2 rounded hover:bg-blue-100"
+      >
+        CSC History
+      </Link>
+    </li>
+    <li>
+      <Link
+        href="/loginpage"
+        className="block px-3 py-2 rounded hover:bg-blue-100"
+      >
+        Login
+      </Link>
+    </li>
+    <li>
+      <Link
+        href="/csc/cardManagement"
+        className="block px-3 py-2 rounded hover:bg-blue-100"
+      >
+        Cards Management
+      </Link>
+    </li>
+    <li>
+      <Link
+        href="/csc/transaction"
+        className="block px-3 py-2 rounded hover:bg-blue-100"
+      >
+        Transaction
+      </Link>
+    </li>
+    <li>
+      <Link
+        href="/csc/topup"
+        className="block px-3 py-2 rounded hover:bg-blue-100"
+      >
+        TopUp History
+      </Link>
+    </li>
+  </ul>
+)}
+
           </li>
         </ul>
       </nav>

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///C:/Users/k/Desktop/kashishpartnerapii/kashishpartnerapi/app/page.tsx"],"sourcesContent":["'use client'\r\nimport { RootState } from '@/store/store';\r\nimport { useRouter } from 'next/navigation';\r\nimport { useEffect } from 'react';\r\nimport { useSelector } from 'react-redux';\r\n\r\nconst page = () => {\r\n\r\n  return (\r\n    <div>page</div>\r\n  )\r\n}\r\n\r\nexport default page;"],"names":[],"mappings":";;;;AAAA;;AAMA,MAAM,OAAO;IAEX,qBACE,6LAAC;kBAAI;;;;;;AAET;uCAEe","debugId":null}}]
+}
