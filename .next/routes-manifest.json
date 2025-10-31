@@ -1,0 +1,145 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/History",
+      "regex": "^/History(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/History(?:/)?$"
+    },
+    {
+      "page": "/Login",
+      "regex": "^/Login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Login(?:/)?$"
+    },
+    {
+      "page": "/Practice",
+      "regex": "^/Practice(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Practice(?:/)?$"
+    },
+    {
+      "page": "/Profile",
+      "regex": "^/Profile(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Profile(?:/)?$"
+    },
+    {
+      "page": "/Report",
+      "regex": "^/Report(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/Report(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/csc/cardmanage",
+      "regex": "^/csc/cardmanage(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/csc/cardmanage(?:/)?$"
+    },
+    {
+      "page": "/csc/history",
+      "regex": "^/csc/history(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/csc/history(?:/)?$"
+    },
+    {
+      "page": "/csc/topup",
+      "regex": "^/csc/topup(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/csc/topup(?:/)?$"
+    },
+    {
+      "page": "/csc/transaction",
+      "regex": "^/csc/transaction(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/csc/transaction(?:/)?$"
+    },
+    {
+      "page": "/developer",
+      "regex": "^/developer(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/developer(?:/)?$"
+    },
+    {
+      "page": "/document",
+      "regex": "^/document(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/document(?:/)?$"
+    },
+    {
+      "page": "/favicon.ico",
+      "regex": "^/favicon\\.ico(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/favicon\\.ico(?:/)?$"
+    },
+    {
+      "page": "/fundRequest",
+      "regex": "^/fundRequest(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/fundRequest(?:/)?$"
+    },
+    {
+      "page": "/ledgerReport",
+      "regex": "^/ledgerReport(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ledgerReport(?:/)?$"
+    },
+    {
+      "page": "/loginpage",
+      "regex": "^/loginpage(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/loginpage(?:/)?$"
+    },
+    {
+      "page": "/transactions",
+      "regex": "^/transactions(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/transactions(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "RSC",
+    "varyHeader": "RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch",
+    "prefetchHeader": "Next-Router-Prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "Next-Router-Segment-Prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  },
+  "rewrites": []
+}

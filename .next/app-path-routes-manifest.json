@@ -1,0 +1,20 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/favicon.ico/route": "/favicon.ico",
+  "/History/page": "/History",
+  "/Login/page": "/Login",
+  "/Practice/page": "/Practice",
+  "/Profile/page": "/Profile",
+  "/Report/page": "/Report",
+  "/csc/cardmanage/page": "/csc/cardmanage",
+  "/csc/transaction/page": "/csc/transaction",
+  "/developer/page": "/developer",
+  "/csc/history/page": "/csc/history",
+  "/document/page": "/document",
+  "/fundRequest/page": "/fundRequest",
+  "/ledgerReport/page": "/ledgerReport",
+  "/page": "/",
+  "/csc/topup/page": "/csc/topup",
+  "/loginpage/page": "/loginpage",
+  "/transactions/page": "/transactions"
+}
