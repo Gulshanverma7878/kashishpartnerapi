@@ -9,6 +9,7 @@ import {
   Loader2,
 } from "lucide-react";
 import SummarySection from "@/components/topup/SummarySection";
+import SummaryGrid from "@/components/topup/SummaryGrid";
 
 export default function PaycardTable() {
   const [data, setData] = useState([]);
@@ -18,6 +19,8 @@ export default function PaycardTable() {
   const [sortField, setSortField] = useState("createdAt");
   const [sortDirection, setSortDirection] = useState("desc");
   const [currentPage, setCurrentPage] = useState(1);
+  const [startDate, setStartDate] = useState("");
+  const [endDate, setEndDate] = useState("");
   const itemsPerPage = 10;
 
   useEffect(() => {
@@ -49,55 +52,27 @@ export default function PaycardTable() {
     fetchData();
   }, []);
 
-  const cardData = [
-    { card: "1234 5678 9012", amount: 12500 },
-    { card: "2345 6789 0123", amount: 9800 },
-    { card: "3456 7890 1234", amount: 14500 },
-    { card: "4567 8901 2345", amount: 7600 },
-    { card: "5678 9012 3456", amount: 10200 },
-  ];
 
-  const cscData = [
-    { cscId: "CSC123456", amount: 15200 },
-    { cscId: "CSC789012", amount: 11800 },
-    { cscId: "CSC456789", amount: 13400 },
-  ];
+  useEffect(()=>{
+    console.log(startDate);
+    console.log(endDate);
+  },[startDate,endDate]);
 
-  // Filter data based on search
-  const filteredData = data.filter(
-    (item) =>
-      item.csc_id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.card.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      item.status.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredData = data.filter((item) => {
+  if (!startDate || !endDate) return true; // no filter if not selected
 
-  // Sort data
-  const sortedData = [...filteredData].sort((a, b) => {
-    if (!sortField) return 0;
+  const createdDate = new Date(item.createdAt);
+  const start = new Date(startDate);
+  const end = new Date(endDate);
 
-    const aVal = a[sortField];
-    const bVal = b[sortField];
-
-    if (sortDirection === "asc") {
-      return aVal > bVal ? 1 : -1;
-    } else {
-      return aVal < bVal ? 1 : -1;
-    }
-  });
+  // 🔹 Include both start and end dates
+  return createdDate >= start && createdDate <= new Date(end.setHours(23, 59, 59, 999));
+});
 
   // Paginate data
-  const totalPages = Math.ceil(sortedData.length / itemsPerPage);
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedData = sortedData.slice(startIndex, startIndex + itemsPerPage);
-
-  const handleSort = (field) => {
-    if (sortField === field) {
-      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
-    } else {
-      setSortField(field);
-      setSortDirection("asc");
-    }
-  };
+  const paginatedData = filteredData.slice(startIndex, startIndex + itemsPerPage);
 
   const getStatusColor = (status) => {
     switch (status?.toLowerCase()) {
@@ -145,37 +120,14 @@ export default function PaycardTable() {
           </p>
         </div>
 
-        {/* //here iwant add two section of  where i want show in first sefciotn i want show card number and total topup amount of success stastusn and in second one i want show CSC ID and total top up amoutnt of success status */}
-        {/* abhi tum static data ke sath dedo  both height showu same does not matter both have same data */}
-
-        {/* Summary Sections */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-          <SummarySection type="card" title="Card Summary" data={cardData} />
-          <SummarySection type="csc" title="CSC Summary" data={cscData} />
-        </div>
-
-        {/* Search and Filters */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-4">
-          <div className="flex items-center gap-4">
-            <div className="flex-1 relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-              <input
-                type="text"
-                placeholder="Search by CSC ID, card, or status..."
-                value={searchTerm}
-                onChange={(e) => {
-                  setSearchTerm(e.target.value);
-                  setCurrentPage(1);
-                }}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
-              />
-            </div>
-            <button className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium">
-              Add New Card
-            </button>
-          </div>
-        </div>
-
+        <SummaryGrid
+          cardData={filteredData}
+          cscData={filteredData}
+          startDate={startDate}
+          endDate={endDate}
+          setStartDate={setStartDate}
+          setEndDate={setEndDate}
+        />
         {/* Table */}
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
           {loading ? (
@@ -200,26 +152,14 @@ export default function PaycardTable() {
                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
                       SR. No.
                     </th>
-                    <th className="px-6 py-3 text-left  border-r  border-t">
-                      <button
-                        onClick={() => handleSort("csc_id")}
-                        className="flex items-center gap-2 text-xs font-semibold text-gray-700 uppercase tracking-wider  hover:text-gray-900"
-                      >
-                        CSC ID
-                        <ArrowUpDown className="w-4 h-4" />
-                      </button>
+                    <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
+                      CSC ID
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
                       Card Number
                     </th>
-                    <th className="px-6 py-3 text-left  border-r  border-t">
-                      <button
-                        onClick={() => handleSort("status")}
-                        className="flex items-center gap-2 text-xs font-semibold text-gray-700 uppercase tracking-wider hover:text-gray-900"
-                      >
-                        Status
-                        <ArrowUpDown className="w-4 h-4" />
-                      </button>
+                    <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
+                      Status
                     </th>
                     <th className="px-6 py-3 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
                       Opening Balance
@@ -316,8 +256,8 @@ export default function PaycardTable() {
             <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200 bg-gray-50">
               <div className="text-sm text-gray-600">
                 Showing {startIndex + 1} to{" "}
-                {Math.min(startIndex + itemsPerPage, sortedData.length)} of{" "}
-                {sortedData.length} results
+                {Math.min(startIndex + itemsPerPage, data.length)} of{" "}
+                {data.length} results
               </div>
               <div className="flex items-center gap-2">
                 <button

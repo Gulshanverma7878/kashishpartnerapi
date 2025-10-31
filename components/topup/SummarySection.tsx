@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 
 interface CardItem {
   card: string;
@@ -18,31 +18,14 @@ interface SummarySectionProps {
 }
 
 const SummarySection: React.FC<SummarySectionProps> = ({ type, title, data }) => {
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
+  // ✅ Calculate total amount
+  const totalAmount = data.reduce((sum, item: any) => sum + (item.amount || 0), 0);
 
   return (
     <div className="bg-white rounded-lg shadow-md border border-gray-300 p-4 md:p-6">
       {/* Header Section */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4 border-b pb-3">
         <h2 className="text-lg font-semibold text-gray-800">{title}</h2>
-
-        {/* Date Range Filter (Smaller Inputs) */}
-        <div className="flex items-center gap-1.5">
-          <input
-            type="date"
-            value={startDate}
-            onChange={(e) => setStartDate(e.target.value)}
-            className="border border-gray-300 rounded-md px-1.5 py-0.5 text-xs focus:outline-none focus:ring-1 focus:ring-blue-400"
-          />
-          <span className="text-gray-600 text-xs">to</span>
-          <input
-            type="date"
-            value={endDate}
-            onChange={(e) => setEndDate(e.target.value)}
-            className="border border-gray-300 rounded-md px-1.5 py-0.5 text-xs focus:outline-none focus:ring-1 focus:ring-blue-400"
-          />
-        </div>
       </div>
 
       {/* Data List Section */}
@@ -60,6 +43,16 @@ const SummarySection: React.FC<SummarySectionProps> = ({ type, title, data }) =>
             </p>
           </div>
         ))}
+      </div>
+
+      {/* 🔹 Total Section */}
+      <div className="border-t pt-3 text-right mt-4">
+        <p className="text-gray-800 font-semibold">
+          Total:{" "}
+          <span className="text-green-700">
+            ₹ {totalAmount.toLocaleString()}
+          </span>
+        </p>
       </div>
     </div>
   );

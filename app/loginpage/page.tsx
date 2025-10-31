@@ -4,7 +4,16 @@ import CscForm from "@/components/csc/CscForm";
 import { useState, useEffect } from "react";
 import { axiosInstance } from "@/lib/axios";
 import CscModal from "@/components/csc/CscModal";
-import { ChevronDown, LogIn, Power, Trash2, Eye, Loader, AlertCircle, Edit } from "lucide-react";
+import {
+  ChevronDown,
+  LogIn,
+  Power,
+  Trash2,
+  Eye,
+  Loader,
+  AlertCircle,
+  Edit,
+} from "lucide-react";
 import axios from "axios";
 
 interface CscDataItem {
@@ -28,8 +37,12 @@ export default function CscIdsPage() {
 
   const [cscData, setCscData] = useState<CscDataItem[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [balanceLoading, setBalanceLoading] = useState<Record<string, boolean>>({});
-  const [statusLoading, setStatusLoading] = useState<Record<string, boolean>>({});
+  const [balanceLoading, setBalanceLoading] = useState<Record<string, boolean>>(
+    {}
+  );
+  const [statusLoading, setStatusLoading] = useState<Record<string, boolean>>(
+    {}
+  );
   const [iframeUrl, setIframeUrl] = useState<string>("");
   const [userid, setUserid] = useState<string>("");
   const [selecteCscId, setSelecteCscId] = useState<string>("");
@@ -39,14 +52,7 @@ export default function CscIdsPage() {
   const [editingItem, setEditingItem] = useState<CscDataItem | null>(null);
   const [showEditModal, setShowEditModal] = useState<boolean>(false);
 
-
-
   const [loadingId, setLoadingId] = useState<number | string | null>(null);
-
-
-
-
-
 
   // ✅ Fetch Balance for a specific CSC ID
   const fetchBalance = async (cscId: string): Promise<void> => {
@@ -60,29 +66,20 @@ export default function CscIdsPage() {
 
       setCscData((prevData) =>
         prevData.map((item) =>
-          item.cscId === cscId
-            ? { ...item, currentBalance: balance }
-            : item
+          item.cscId === cscId ? { ...item, currentBalance: balance } : item
         )
       );
     } catch (error) {
       console.error(`Error fetching balance for ${cscId}:`, error);
       setCscData((prevData) =>
         prevData.map((item) =>
-          item.cscId === cscId
-            ? { ...item, currentBalance: "0" }
-            : item
+          item.cscId === cscId ? { ...item, currentBalance: "0" } : item
         )
       );
     } finally {
       setBalanceLoading((prev) => ({ ...prev, [cscId]: false }));
     }
   };
-
-
-
-
-
 
   // ✅ Fetch CSC Data using axiosInstance
   const fetchCscData = async (): Promise<void> => {
@@ -101,7 +98,6 @@ export default function CscIdsPage() {
       const response = await axiosInstance.get(`/api/csc/${userId}`);
       ///updateTopup
 
-
       console.log(response?.data);
       const responseAmountLimit = await axiosInstance.get(`/getTopup`);
       const responseAutoLoading = await axiosInstance.get(`/getAutoLoading`);
@@ -112,16 +108,18 @@ export default function CscIdsPage() {
       const result = response.data;
 
       if (result?.data && result.data.length > 0) {
-        const formatted: CscDataItem[] = result.data.map((item: any, index: number) => ({
-          id: item.id,
-          name: user?.name || "N/A",
-          cscId: item.csc_id,
-          currentBalance: "Login First!",
-          payment: "No payments found",
-          billCount: "No bills found",
-          password: item.password,
-          status_new: item.status_new === "ACTIVE" ? "ACTIVE" : "INACTIVE",
-        }));
+        const formatted: CscDataItem[] = result.data.map(
+          (item: any, index: number) => ({
+            id: item.id,
+            name: user?.name || "N/A",
+            cscId: item.csc_id,
+            currentBalance: "Login First!",
+            payment: "No payments found",
+            billCount: "No bills found",
+            password: item.password,
+            status_new: item.status_new === "ACTIVE" ? "ACTIVE" : "INACTIVE",
+          })
+        );
         setCscData(formatted);
 
         formatted.forEach((item: CscDataItem) => {
@@ -138,17 +136,14 @@ export default function CscIdsPage() {
     }
   };
 
-
   useEffect(() => {
     fetchCscData();
   }, []);
 
-
-
-
-
   const handleRemove = (id: string | number): void => {
-    const confirmed = window.confirm("Are you sure you want to delete this CSC record?");
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this CSC record?"
+    );
 
     if (!confirmed) return;
 
@@ -156,28 +151,21 @@ export default function CscIdsPage() {
 
     const URL = `https://api.partner.kashishindiapvtltd.com/api/csc/${id}`;
 
-    axiosInstance.delete(URL)
-      .then(response => {
+    axiosInstance
+      .delete(URL)
+      .then((response) => {
         console.log("Deleted successfully:", response.data);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error("Error deleting CSC ID:", error);
       });
   };
-
-
-
 
   // ✅ Handle Edit Button Click
   const handleEdit = (item: CscDataItem): void => {
     setEditingItem({ ...item });
     setShowEditModal(true);
   };
-
-
-
-
-
 
   // ✅ Handle Edit Form Submit
   const handleEditSubmit = async (): Promise<void> => {
@@ -197,9 +185,7 @@ export default function CscIdsPage() {
 
       // Update local state
       setCscData(
-        cscData.map((item) =>
-          item.id === editingItem.id ? editingItem : item
-        )
+        cscData.map((item) => (item.id === editingItem.id ? editingItem : item))
       );
 
       alert("CSC ID updated successfully!");
@@ -211,12 +197,10 @@ export default function CscIdsPage() {
     }
   };
 
-
-
-
-
-
-  const toggleStatus = async (id: string | number, item: CscDataItem): Promise<void> => {
+  const toggleStatus = async (
+    id: string | number,
+    item: CscDataItem
+  ): Promise<void> => {
     try {
       const cscItem = cscData.find((el) => el.id === id);
       if (!cscItem) return;
@@ -239,9 +223,9 @@ export default function CscIdsPage() {
         cscData.map((el) =>
           el.id === id
             ? {
-              ...el,
-              status_new: newStatus as "ACTIVE" | "INACTIVE",
-            }
+                ...el,
+                status_new: newStatus as "ACTIVE" | "INACTIVE",
+              }
             : el
         )
       );
@@ -254,12 +238,6 @@ export default function CscIdsPage() {
       setStatusLoading((prev) => ({ ...prev, [id]: false }));
     }
   };
-
-
-
-
-
-
 
   // const handleDigiLogin = (item: CscDataItem): void => {
   //   try {
@@ -274,43 +252,33 @@ export default function CscIdsPage() {
   //   }
   // };
 
-
-
   const handleDigiLogin = async (item: CscDataItem): Promise<void> => {
-  try {
+    try {
+      setLoadingId(item.id); // ✅ start loading for this row
+      const url = `https://api.partner.kashishindiapvtltd.com/api/cscsession/Logincsc/login/digi?user_id=${item.cscId}&password=${item.password}&csc_id=${userid}`;
+      console.log("Opening Digi Login URL:", url);
 
-    setLoadingId(item.id); // ✅ start loading for this row
-    const url = `https://api.partner.kashishindiapvtltd.com/api/cscsession/Logincsc/login/digi?user_id=${item.cscId}&password=${item.password}&csc_id=${userid}`;
-    console.log("Opening Digi Login URL:", url);
+      // ✅ Make API call
+      const response = await axios.get(url);
 
-    // ✅ Make API call
-    const response = await axios.get(url);
+      console.log("Digi Login Response:", response.data);
 
-    console.log("Digi Login Response:", response.data);
+      // ✅ Check success (adjust this condition as per your API response)
+      if (response.status === 200 || response.data?.success) {
+        // alert("Digi Login Successful!");
 
-    // ✅ Check success (adjust this condition as per your API response)
-    if (response.status === 200 || response.data?.success) {
-      // alert("Digi Login Successful!");
-      
-      // 👉 call fetchCscData() again to refresh UI
-      fetchCscData();
-    } else {
-      alert("Digi Login Failed. Please check credentials.");
+        // 👉 call fetchCscData() again to refresh UI
+        fetchCscData();
+      } else {
+        alert("Digi Login Failed. Please check credentials.");
+      }
+    } catch (error) {
+      console.error("Error in handleDigiLogin:", error);
+      alert("Failed to load Digi Login. Please try again.");
+    } finally {
+      setLoadingId(null); // ✅ stop loading
     }
-
-  } catch (error) {
-    console.error("Error in handleDigiLogin:", error);
-    alert("Failed to load Digi Login. Please try again.");
-  }
-  finally {
-    setLoadingId(null); // ✅ stop loading
-  }
-};
-
-
-
-
-
+  };
 
   const handleNormalLogin = (item: CscDataItem): void => {
     try {
@@ -324,13 +292,6 @@ export default function CscIdsPage() {
       alert("Failed to load Normal Login. Please try again.");
     }
   };
-
-
-
-
-
-
-
 
   const [uploading, setUploading] = useState(false);
 
@@ -356,7 +317,9 @@ export default function CscIdsPage() {
       window.location.reload();
     } catch (error: any) {
       console.error("Error uploading file:", error);
-      alert(error.response?.data?.message || "Upload failed. Please try again.");
+      alert(
+        error.response?.data?.message || "Upload failed. Please try again."
+      );
     } finally {
       setUploading(false);
     }
@@ -384,7 +347,6 @@ export default function CscIdsPage() {
 
       const data = await res.json();
       console.log("Response:", data);
-
     } catch (error: any) {
       if (error.name === "AbortError") {
         console.warn("Fetch aborted due to timeout");
@@ -394,10 +356,10 @@ export default function CscIdsPage() {
     }
   };
 
-
-
   const handleAmountLimitChange = () => {
-    fetch(`https://api.partner.kashishindiapvtltd.com/updateTopup?amount=${AmountLimit}`)
+    fetch(
+      `https://api.partner.kashishindiapvtltd.com/updateTopup?amount=${AmountLimit}`
+    )
       .then((res) => res.json())
       .then((data) => {
         alert("Amount limit updated successfully");
@@ -406,12 +368,13 @@ export default function CscIdsPage() {
       .catch((error) => {
         console.error("Error updating amount limit:", error);
       });
-  }
-
+  };
 
   const changeAutoLoading = (val: any) => {
     setAutoLoading(val);
-    fetch(`https://api.partner.kashishindiapvtltd.com/setautoLoading?status=` + val)
+    fetch(
+      `https://api.partner.kashishindiapvtltd.com/setautoLoading?status=` + val
+    )
       .then((res) => res.json())
       .then((data) => {
         alert("Amount limit updated successfully");
@@ -420,7 +383,7 @@ export default function CscIdsPage() {
       .catch((error) => {
         console.error("Error updating amount limit:", error);
       });
-  }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900 p-4 md:p-8">
@@ -430,7 +393,9 @@ export default function CscIdsPage() {
           <h1 className="text-5xl md:text-6xl font-black bg-gradient-to-r from-emerald-400 via-blue-400 to-purple-400 bg-clip-text text-transparent mb-3 drop-shadow-lg">
             My CSC IDs
           </h1>
-          <p className="text-slate-300 text-lg">Manage and monitor your CSC accounts efficiently</p>
+          <p className="text-slate-300 text-lg">
+            Manage and monitor your CSC accounts efficiently
+          </p>
         </div>
 
         {/* Filter Section */}
@@ -438,7 +403,9 @@ export default function CscIdsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Date Filters Row */}
             <div className="flex flex-col gap-2">
-              <label className="text-slate-300 font-semibold text-sm">Start Date</label>
+              <label className="text-slate-300 font-semibold text-sm">
+                Start Date
+              </label>
               <input
                 type="text"
                 value={startDate}
@@ -448,7 +415,9 @@ export default function CscIdsPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-slate-300 font-semibold text-sm">End Date</label>
+              <label className="text-slate-300 font-semibold text-sm">
+                End Date
+              </label>
               <input
                 type="text"
                 value={endDate}
@@ -458,7 +427,9 @@ export default function CscIdsPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-slate-300 font-semibold text-sm opacity-0">Filter</label>
+              <label className="text-slate-300 font-semibold text-sm opacity-0">
+                Filter
+              </label>
               <button className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold px-8 py-2.5 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
                 Filter
               </button>
@@ -466,7 +437,9 @@ export default function CscIdsPage() {
 
             {/* TopUp Limit Row */}
             <div className="flex flex-col gap-2">
-              <label className="text-slate-300 font-semibold text-sm">TopUp Limit</label>
+              <label className="text-slate-300 font-semibold text-sm">
+                TopUp Limit
+              </label>
               <input
                 type="text"
                 value={AmountLimit}
@@ -476,7 +449,9 @@ export default function CscIdsPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-slate-300 font-semibold text-sm opacity-0">Set</label>
+              <label className="text-slate-300 font-semibold text-sm opacity-0">
+                Set
+              </label>
               <button
                 onClick={handleAmountLimitChange}
                 className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold px-8 py-2.5 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg"
@@ -487,11 +462,17 @@ export default function CscIdsPage() {
 
             {/* Auto Loading */}
             <div className="flex flex-col gap-2">
-              <label className="text-slate-300 font-semibold text-sm">Auto Loading 
-                <label className="text-blue-500"> {AutoLoading == "ON" ? "Started" : "OFF"}</label>
+              <label className="text-slate-300 font-semibold text-sm">
+                Auto Loading
+                <label className="text-blue-500">
+                  {" "}
+                  {AutoLoading == "ON" ? "Started" : "OFF"}
+                </label>
               </label>
               <button
-                onClick={() => changeAutoLoading(AutoLoading === "ON" ? "OFF" : "ON")}
+                onClick={() =>
+                  changeAutoLoading(AutoLoading === "ON" ? "OFF" : "ON")
+                }
                 className="bg-slate-700/50 border border-slate-600 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition duration-200 hover:bg-slate-600/50"
                 value={AutoLoading === "ON" ? "OFF" : "ON"}
               >
@@ -501,7 +482,9 @@ export default function CscIdsPage() {
 
             {/* Action Buttons Row */}
             <div className="flex flex-col gap-2">
-              <label className="text-slate-300 font-semibold text-sm opacity-0">Action</label>
+              <label className="text-slate-300 font-semibold text-sm opacity-0">
+                Action
+              </label>
               <button
                 onClick={() => setShowCscForm(true)}
                 className="bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white font-bold px-8 py-2.5 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg"
@@ -511,7 +494,9 @@ export default function CscIdsPage() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-slate-300 font-semibold text-sm opacity-0">Import</label>
+              <label className="text-slate-300 font-semibold text-sm opacity-0">
+                Import
+              </label>
               <div className="relative">
                 <input
                   type="file"
@@ -547,15 +532,33 @@ export default function CscIdsPage() {
               <table className="w-full">
                 <thead>
                   <tr className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
-                    <th className="px-6 py-4 text-left font-bold text-sm">Sr. No</th>
-                    <th className="px-6 py-4 text-left font-bold text-sm">CSC ID</th>
-                    <th className="px-6 py-4 text-left font-bold text-sm">Balance</th>
-                    <th className="px-6 py-4 text-left font-bold text-sm">Payments</th>
-                    <th className="px-6 py-4 text-left font-bold text-sm">Digi Login</th>
-                    <th className="px-6 py-4 text-left font-bold text-sm">Status</th>
-                    <th className="px-6 py-4 text-left font-bold text-sm">Start Loading</th>
-                    <th className="px-6 py-4 text-left font-bold text-sm">Actions</th>
-                    <th className="px-6 py-4 text-left font-bold text-sm">Session</th>
+                    <th className="px-6 py-4 text-left font-bold text-sm">
+                      Sr. No
+                    </th>
+                    <th className="px-6 py-4 text-left font-bold text-sm">
+                      CSC ID
+                    </th>
+                    <th className="px-6 py-4 text-left font-bold text-sm">
+                      Balance
+                    </th>
+                    <th className="px-6 py-4 text-left font-bold text-sm">
+                      Payments
+                    </th>
+                    <th className="px-6 py-4 text-left font-bold text-sm">
+                      Digi Login
+                    </th>
+                    <th className="px-6 py-4 text-left font-bold text-sm">
+                      Status
+                    </th>
+                    <th className="px-6 py-4 text-left font-bold text-sm">
+                      Start Loading
+                    </th>
+                    <th className="px-6 py-4 text-left font-bold text-sm">
+                      Actions
+                    </th>
+                    <th className="px-6 py-4 text-left font-bold text-sm">
+                      Session
+                    </th>
                   </tr>
                 </thead>
 
@@ -565,8 +568,12 @@ export default function CscIdsPage() {
                       <td colSpan={9} className="text-center py-16">
                         <div className="flex flex-col items-center justify-center text-slate-400">
                           <AlertCircle className="w-16 h-16 mb-4 text-slate-500" />
-                          <p className="text-xl font-semibold mb-2">No CSC IDs Found</p>
-                          <p className="text-sm">Click "Add CSC IDs" to get started</p>
+                          <p className="text-xl font-semibold mb-2">
+                            No CSC IDs Found
+                          </p>
+                          <p className="text-sm">
+                            Click "Add CSC IDs" to get started
+                          </p>
                         </div>
                       </td>
                     </tr>
@@ -576,7 +583,9 @@ export default function CscIdsPage() {
                         key={item.id}
                         className="hover:bg-slate-700/50 transition duration-200 border-slate-700"
                       >
-                        <td className="px-6 py-4 text-slate-300 font-semibold">{index + 1}</td>
+                        <td className="px-6 py-4 text-slate-300 font-semibold">
+                          {index + 1}
+                        </td>
                         <td className="px-6 py-4">
                           <span className="bg-blue-500/20 text-blue-300 px-3 py-1.5 rounded-full font-mono text-sm font-bold">
                             {item.cscId}
@@ -587,7 +596,7 @@ export default function CscIdsPage() {
                             <span
                               className={
                                 item.currentBalance === "Login First!" ||
-                                  item.currentBalance === "Error fetching"
+                                item.currentBalance === "Error fetching"
                                   ? "text-red-400 font-bold"
                                   : "text-emerald-400 font-bold text-lg"
                               }
@@ -601,8 +610,9 @@ export default function CscIdsPage() {
                             )}
                           </div>
                         </td>
-                        <td className="px-6 py-4 text-slate-400">{item.payment}</td>
-
+                        <td className="px-6 py-4 text-slate-400">
+                          {item.payment}
+                        </td>
 
                         {/* <td className="px-6 py-4">
                           <button
@@ -613,43 +623,42 @@ export default function CscIdsPage() {
                           </button>
                         </td> */}
 
-
-
                         <td className="px-6 py-4">
-  <button
-    onClick={() => handleDigiLogin(item)}
-    disabled={loadingId === item.id} // disable while loading
-    className={`${
-      loadingId === item.id
-        ? "bg-gray-400 cursor-not-allowed"
-        : "bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800"
-    } text-white rounded-lg px-4 py-2 transition duration-300 transform hover:scale-105 font-semibold flex items-center gap-2 shadow-lg`}
-  >
-    {loadingId === item.id ? (
-      <>
-        <Loader className="w-4 h-4 animate-spin" /> Loading...
-      </>
-    ) : (
-      <>
-        <LogIn className="w-4 h-4" /> Digi
-      </>
-    )}
-  </button>
-</td>
-
-
-
-
-
+                          <button
+                            onClick={() => handleDigiLogin(item)}
+                            disabled={loadingId === item.id} // disable while loading
+                            className={`${
+                              loadingId === item.id
+                                ? "bg-gray-400 cursor-not-allowed"
+                                : "bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800"
+                            } text-white rounded-lg px-4 py-2 transition duration-300 transform hover:scale-105 font-semibold flex items-center gap-2 shadow-lg`}
+                          >
+                            {loadingId === item.id ? (
+                              <>
+                                <Loader className="w-4 h-4 animate-spin" />{" "}
+                                Loading...
+                              </>
+                            ) : (
+                              <>
+                                <LogIn className="w-4 h-4" /> Digi
+                              </>
+                            )}
+                          </button>
+                        </td>
 
                         <td className="px-6 py-4">
                           <button
                             onClick={() => toggleStatus(item.id, item)}
                             disabled={statusLoading[item.id as string]}
-                            className={`px-4 py-2 rounded-lg font-bold transition duration-300 flex items-center gap-2 shadow-lg ${item.status_new === "ACTIVE"
-                              ? "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white"
-                              : "bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white"
-                              } ${statusLoading[item.id as string] ? "opacity-60 cursor-not-allowed" : "hover:scale-105 transform"}`}
+                            className={`px-4 py-2 rounded-lg font-bold transition duration-300 flex items-center gap-2 shadow-lg ${
+                              item.status_new === "ACTIVE"
+                                ? "bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 text-white"
+                                : "bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white"
+                            } ${
+                              statusLoading[item.id as string]
+                                ? "opacity-60 cursor-not-allowed"
+                                : "hover:scale-105 transform"
+                            }`}
                           >
                             {statusLoading[item.id as string] ? (
                               <>
@@ -728,30 +737,45 @@ export default function CscIdsPage() {
 
             <div className="space-y-4">
               <div>
-                <label className="block text-slate-300 font-semibold mb-2">CSC ID</label>
+                <label className="block text-slate-300 font-semibold mb-2">
+                  CSC ID
+                </label>
                 <input
                   type="text"
                   value={editingItem.cscId}
-                  onChange={(e) => setEditingItem({ ...editingItem, cscId: e.target.value })}
+                  onChange={(e) =>
+                    setEditingItem({ ...editingItem, cscId: e.target.value })
+                  }
                   className="w-full bg-slate-700/50 border border-slate-600 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 />
               </div>
 
               <div>
-                <label className="block text-slate-300 font-semibold mb-2">Password</label>
+                <label className="block text-slate-300 font-semibold mb-2">
+                  Password
+                </label>
                 <input
-                  type="password"
+                  type="text"
                   value={editingItem.password}
-                  onChange={(e) => setEditingItem({ ...editingItem, password: e.target.value })}
+                  onChange={(e) =>
+                    setEditingItem({ ...editingItem, password: e.target.value })
+                  }
                   className="w-full bg-slate-700/50 border border-slate-600 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 />
               </div>
 
               <div>
-                <label className="block text-slate-300 font-semibold mb-2">Status</label>
+                <label className="block text-slate-300 font-semibold mb-2">
+                  Status
+                </label>
                 <select
                   value={editingItem.status_new}
-                  onChange={(e) => setEditingItem({ ...editingItem, status_new: e.target.value as "ACTIVE" | "INACTIVE" })}
+                  onChange={(e) =>
+                    setEditingItem({
+                      ...editingItem,
+                      status_new: e.target.value as "ACTIVE" | "INACTIVE",
+                    })
+                  }
                   className="w-full bg-slate-700/50 border border-slate-600 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                 >
                   <option value="ACTIVE">ACTIVE</option>
@@ -806,7 +830,9 @@ export default function CscIdsPage() {
             {iframeLoading && (
               <div className="absolute inset-0 flex items-center justify-center bg-black/40 z-40 flex-col gap-4 backdrop-blur-sm">
                 <div className="w-14 h-14 border-4 border-emerald-300 border-t-emerald-600 rounded-full animate-spin"></div>
-                <p className="text-white font-bold text-lg">Loading Portal...</p>
+                <p className="text-white font-bold text-lg">
+                  Loading Portal...
+                </p>
               </div>
             )}
 
@@ -823,7 +849,10 @@ export default function CscIdsPage() {
             </div>
 
             <div className="bg-slate-800 px-6 py-3 border-t border-slate-600 text-xs text-slate-400">
-              Session Type: <span className="text-emerald-400 font-bold">{loginType === "digi" ? "Digi Login" : "Normal Login"}</span>
+              Session Type:{" "}
+              <span className="text-emerald-400 font-bold">
+                {loginType === "digi" ? "Digi Login" : "Normal Login"}
+              </span>
             </div>
           </div>
         </div>
@@ -831,7 +860,10 @@ export default function CscIdsPage() {
 
       {/* CSC Modal */}
       {showModal && (
-        <CscModal selecteCscId={selecteCscId} onClose={() => setShowModal(false)} />
+        <CscModal
+          selecteCscId={selecteCscId}
+          onClose={() => setShowModal(false)}
+        />
       )}
     </div>
   );

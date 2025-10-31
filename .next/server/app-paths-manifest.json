@@ -1,16 +1,6 @@
 {
-  "/Login/page": "app/Login/page.js",
-  "/Profile/page": "app/Profile/page.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/csc/cardManagement/page": "app/csc/cardManagement/page.js",
-  "/csc/cardmanage/page": "app/csc/cardmanage/page.js",
-  "/csc/history/page": "app/csc/history/page.js",
   "/csc/topup/page": "app/csc/topup/page.js",
-  "/csc/transaction/page": "app/csc/transaction/page.js",
-  "/developer/page": "app/developer/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/fundRequest/page": "app/fundRequest/page.js",
-  "/ledgerReport/page": "app/ledgerReport/page.js",
-  "/loginpage/page": "app/loginpage/page.js",
-  "/page": "app/page.js"
+  "/loginpage/page": "app/loginpage/page.js"
 }
