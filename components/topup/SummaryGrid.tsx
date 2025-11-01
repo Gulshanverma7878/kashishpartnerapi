@@ -64,7 +64,7 @@ const SummaryGrid: React.FC<SummaryGridProps> = ({ cardData, cscData,startDate,
       cscId,
       amount,
     }));
-  }, [cscData]);
+  }, [cscData]);   
 
   return (
     <div className="bg-white rounded-lg shadow-md border border-gray-300 p-4 md:p-6 mb-6">
