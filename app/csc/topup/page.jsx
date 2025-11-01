@@ -52,27 +52,34 @@ export default function PaycardTable() {
     fetchData();
   }, []);
 
-
-  useEffect(()=>{
+  useEffect(() => {
     console.log(startDate);
     console.log(endDate);
-  },[startDate,endDate]);
+  }, [startDate, endDate]);
 
   const filteredData = data.filter((item) => {
-  if (!startDate || !endDate) return true; // no filter if not selected
+    if (!startDate || !endDate) return true; // no filter if not selected
 
-  const createdDate = new Date(item.createdAt);
-  const start = new Date(startDate);
-  const end = new Date(endDate);
+    const createdDate = new Date(item.createdAt);
+    const start = new Date(startDate);
+    const end = new Date(endDate);
 
-  // 🔹 Include both start and end dates
-  return createdDate >= start && createdDate <= new Date(end.setHours(23, 59, 59, 999));
-});
+    // 🔹 Include both start and end dates
+    return (
+      createdDate >= start &&
+      createdDate <= new Date(end.setHours(23, 59, 59, 999))
+    );
+  });
+
+  console.log(filteredData);
 
   // Paginate data
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedData = filteredData.slice(startIndex, startIndex + itemsPerPage);
+  const paginatedData = filteredData.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   const getStatusColor = (status) => {
     switch (status?.toLowerCase()) {

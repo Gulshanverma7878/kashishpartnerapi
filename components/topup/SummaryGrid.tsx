@@ -32,8 +32,7 @@ const SummaryGrid: React.FC<SummaryGridProps> = ({ cardData, cscData,startDate,
   endDate,
   setStartDate,
   setEndDate, }) => {
-//   const [startDate, setStartDate] = useState("");
-//   const [endDate, setEndDate] = useState("");
+
 
   // ✅ Utility function: aggregate by key (card or csc_id)
   const aggregateByKey = (
