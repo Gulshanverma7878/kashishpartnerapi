@@ -1,5 +1,9 @@
 {
   "app": {
+    "[project]/app/Profile/page": [
+      "static/media/or3nQ6H_1_WfwkMZI_qYFrcdmhHkjko-s.p.be19f591.woff2",
+      "static/media/gyByhwUxId8gMEwcGFWNOITd-s.p.1a6fa3e1.woff2"
+    ],
     "[project]/app/_not-found/page": [
       "static/media/or3nQ6H_1_WfwkMZI_qYFrcdmhHkjko-s.p.be19f591.woff2",
       "static/media/gyByhwUxId8gMEwcGFWNOITd-s.p.1a6fa3e1.woff2"
@@ -13,6 +17,10 @@
       "static/media/gyByhwUxId8gMEwcGFWNOITd-s.p.1a6fa3e1.woff2"
     ],
     "[project]/app/csc/topup/page": [
+      "static/media/or3nQ6H_1_WfwkMZI_qYFrcdmhHkjko-s.p.be19f591.woff2",
+      "static/media/gyByhwUxId8gMEwcGFWNOITd-s.p.1a6fa3e1.woff2"
+    ],
+    "[project]/app/fundRequest/page": [
       "static/media/or3nQ6H_1_WfwkMZI_qYFrcdmhHkjko-s.p.be19f591.woff2",
       "static/media/gyByhwUxId8gMEwcGFWNOITd-s.p.1a6fa3e1.woff2"
     ],

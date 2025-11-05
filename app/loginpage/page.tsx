@@ -15,6 +15,7 @@ import {
   Edit,
 } from "lucide-react";
 import axios from "axios";
+import ProcessModal from "@/components/Login/ProcessModal";
 
 interface CscDataItem {
   id: string | number;
@@ -51,6 +52,7 @@ export default function CscIdsPage() {
   const [loginType, setLoginType] = useState<"digi" | "normal" | null>(null);
   const [editingItem, setEditingItem] = useState<CscDataItem | null>(null);
   const [showEditModal, setShowEditModal] = useState<boolean>(false);
+  const [showProcess,setShowProcess]=useState<boolean>(true);
 
   const [loadingId, setLoadingId] = useState<number | string | null>(null);
 
@@ -513,6 +515,30 @@ export default function CscIdsPage() {
                 </label>
               </div>
             </div>
+
+            
+             <div className="flex flex-col gap-2">
+              <label className="text-slate-300 font-semibold text-sm opacity-0">
+                Import
+              </label>
+              <div className="relative">
+                <input
+                  type="file"
+                  id="xlsxFile"
+                  accept=".xlsx"
+                  onChange={handleFileUpload}
+                  className="hidden"
+                />
+                <label
+                  htmlFor="xlsxFile"
+                  className="cursor-pointer bg-gradient-to-r from-yellow-500 to-orange-600 hover:from-yellow-600 hover:to-orange-700 text-white font-bold px-8 py-2.5 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center"
+                >
+                  Show Process
+                </label>
+              </div>
+            </div>
+
+
           </div>
         </div>
         {showCscForm && (
@@ -865,6 +891,9 @@ export default function CscIdsPage() {
           onClose={() => setShowModal(false)}
         />
       )}
+
+       <ProcessModal isOpen={showProcess} onClose={() => setShowProcess(false)} />
     </div>
+
   );
 }

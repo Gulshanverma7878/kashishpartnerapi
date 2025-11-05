@@ -482,6 +482,438 @@ function CscModal({ selecteCscId, onClose }) {
     }, this);
 }
 }}),
+"[project]/components/Login/ProcessModal.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
+"use strict";
+
+var { g: global, __dirname } = __turbopack_context__;
+{
+__turbopack_context__.s({
+    "default": (()=>__TURBOPACK__default__export__)
+});
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+"use client";
+;
+;
+const ProcessModal = ({ isOpen, onClose })=>{
+    const [data, setData] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])([]);
+    const [loading, setLoading] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
+    const [error, setError] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        if (!isOpen) return;
+        const fetchData = async ()=>{
+            try {
+                setLoading(true);
+                const res = await fetch("https://api.partner.kashishindiapvtltd.com/viewprocess");
+                if (!res.ok) throw new Error("Failed to fetch data");
+                const result = await res.json();
+                if (Array.isArray(result)) {
+                    // Sort by createdAt (latest first)
+                    setData(result.sort((a, b)=>b.createdAt - a.createdAt));
+                } else {
+                    throw new Error("Invalid data format");
+                }
+            } catch (err) {
+                setError(err.message);
+            } finally{
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, [
+        isOpen
+    ]);
+    if (!isOpen) return null;
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50",
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "bg-white backdrop-blur-md rounded-3xl shadow-2xl p-6 w-full max-w-6xl relative border border-gray-200 overflow-hidden",
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                    onClick: onClose,
+                    className: "absolute top-3 right-4 text-gray-600 text-2xl font-bold hover:text-red-500",
+                    children: "×"
+                }, void 0, false, {
+                    fileName: "[project]/components/Login/ProcessModal.tsx",
+                    lineNumber: 61,
+                    columnNumber: 9
+                }, this),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                    className: "text-2xl font-bold text-blue-700 mb-4 text-center",
+                    children: "🔍 Process History"
+                }, void 0, false, {
+                    fileName: "[project]/components/Login/ProcessModal.tsx",
+                    lineNumber: 68,
+                    columnNumber: 9
+                }, this),
+                loading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-center text-blue-600 py-4",
+                    children: "Loading data..."
+                }, void 0, false, {
+                    fileName: "[project]/components/Login/ProcessModal.tsx",
+                    lineNumber: 73,
+                    columnNumber: 11
+                }, this) : error ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                    className: "text-center text-red-600 py-4",
+                    children: [
+                        "❌ ",
+                        error
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/components/Login/ProcessModal.tsx",
+                    lineNumber: 75,
+                    columnNumber: 11
+                }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "max-h-[70vh] overflow-y-auto rounded-xl border border-gray-200 shadow-inner",
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
+                        className: "w-full border-collapse text-sm",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
+                                className: "bg-blue-50 sticky top-0",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: "border p-2 text-left",
+                                            children: "#"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Login/ProcessModal.tsx",
+                                            lineNumber: 81,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: "border p-2 text-left",
+                                            children: "Process ID"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Login/ProcessModal.tsx",
+                                            lineNumber: 82,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: "border p-2 text-left",
+                                            children: "User ID"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Login/ProcessModal.tsx",
+                                            lineNumber: 83,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: "border p-2 text-left",
+                                            children: "Created At"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Login/ProcessModal.tsx",
+                                            lineNumber: 84,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: "border p-2 text-left",
+                                            children: "Stage"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Login/ProcessModal.tsx",
+                                            lineNumber: 85,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: "border p-2 text-left",
+                                            children: "Status"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Login/ProcessModal.tsx",
+                                            lineNumber: 86,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: "border p-2 text-left",
+                                            children: "Message"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Login/ProcessModal.tsx",
+                                            lineNumber: 87,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                            className: "border p-2 text-left",
+                                            children: "Updated At"
+                                        }, void 0, false, {
+                                            fileName: "[project]/components/Login/ProcessModal.tsx",
+                                            lineNumber: 88,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/components/Login/ProcessModal.tsx",
+                                    lineNumber: 80,
+                                    columnNumber: 17
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/components/Login/ProcessModal.tsx",
+                                lineNumber: 79,
+                                columnNumber: 15
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
+                                children: data.map((process, i)=>{
+                                    const stages = Object.entries(process.stages);
+                                    return stages.map(([key, stage], idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
+                                            className: "hover:bg-gray-50 transition",
+                                            children: [
+                                                idx === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            rowSpan: stages.length,
+                                                            className: "border p-2 text-gray-700 align-top",
+                                                            children: i + 1
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/Login/ProcessModal.tsx",
+                                                            lineNumber: 101,
+                                                            columnNumber: 27
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            rowSpan: stages.length,
+                                                            className: "border p-2 text-blue-600 font-medium align-top",
+                                                            children: process.id
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/Login/ProcessModal.tsx",
+                                                            lineNumber: 107,
+                                                            columnNumber: 27
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            rowSpan: stages.length,
+                                                            className: "border p-2 text-gray-700 align-top",
+                                                            children: process.user_id
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/Login/ProcessModal.tsx",
+                                                            lineNumber: 113,
+                                                            columnNumber: 27
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                            rowSpan: stages.length,
+                                                            className: "border p-2 text-gray-500 align-top",
+                                                            children: new Date(process.createdAt).toLocaleString()
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/components/Login/ProcessModal.tsx",
+                                                            lineNumber: 119,
+                                                            columnNumber: 27
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                    className: "border p-2 text-gray-800",
+                                                    children: key
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/Login/ProcessModal.tsx",
+                                                    lineNumber: 127,
+                                                    columnNumber: 23
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                    className: `border p-2 font-semibold ${stage.status.toLowerCase() === "success" ? "text-green-600" : stage.status.toLowerCase() === "failed" ? "text-red-600" : stage.status.toLowerCase() === "pending" ? "text-yellow-600" : "text-gray-700"}`,
+                                                    children: stage.status
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/Login/ProcessModal.tsx",
+                                                    lineNumber: 128,
+                                                    columnNumber: 23
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                    className: "border p-2 text-gray-700",
+                                                    children: stage.message
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/Login/ProcessModal.tsx",
+                                                    lineNumber: 141,
+                                                    columnNumber: 23
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                    className: "border p-2 text-gray-500",
+                                                    children: new Date(stage.updatedAt).toLocaleString()
+                                                }, void 0, false, {
+                                                    fileName: "[project]/components/Login/ProcessModal.tsx",
+                                                    lineNumber: 144,
+                                                    columnNumber: 23
+                                                }, this)
+                                            ]
+                                        }, `${process.id}-${key}`, true, {
+                                            fileName: "[project]/components/Login/ProcessModal.tsx",
+                                            lineNumber: 95,
+                                            columnNumber: 21
+                                        }, this));
+                                })
+                            }, void 0, false, {
+                                fileName: "[project]/components/Login/ProcessModal.tsx",
+                                lineNumber: 91,
+                                columnNumber: 15
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/components/Login/ProcessModal.tsx",
+                        lineNumber: 78,
+                        columnNumber: 13
+                    }, this)
+                }, void 0, false, {
+                    fileName: "[project]/components/Login/ProcessModal.tsx",
+                    lineNumber: 77,
+                    columnNumber: 11
+                }, this)
+            ]
+        }, void 0, true, {
+            fileName: "[project]/components/Login/ProcessModal.tsx",
+            lineNumber: 59,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/components/Login/ProcessModal.tsx",
+        lineNumber: 58,
+        columnNumber: 5
+    }, this);
+};
+const __TURBOPACK__default__export__ = ProcessModal;
+ // "use client";
+ // import React, { useEffect, useState } from "react";
+ // export default function ProcessModalAccordion({ isOpen, onClose }: any) {
+ //   const [data, setData] = useState<any[]>([]);
+ //   const [open, setOpen] = useState<number | null>(null);
+ //   useEffect(() => {
+ //     if (!isOpen) return;
+ //     fetch("https://api.partner.kashishindiapvtltd.com/viewprocess")
+ //       .then((res) => res.json())
+ //       .then((result) =>
+ //         setData(result.sort((a: any, b: any) => b.createdAt - a.createdAt))
+ //       );
+ //   }, [isOpen]);
+ //   if (!isOpen) return null;
+ //   return (
+ //     <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50">
+ //       <div className="bg-white p-6 rounded-2xl w-[90%] max-w-5xl shadow-xl relative">
+ //         <button
+ //           onClick={onClose}
+ //           className="absolute top-3 right-5 text-2xl font-bold text-gray-500 hover:text-red-500"
+ //         >
+ //           ×
+ //         </button>
+ //         <h2 className="text-2xl font-bold text-blue-700 mb-4 text-center">
+ //           🔍 Process History (Accordion View)
+ //         </h2>
+ //         <div className="max-h-[70vh] overflow-y-auto space-y-3">
+ //           {data.map((p, i) => (
+ //             <div key={i} className="border rounded-xl shadow-sm">
+ //               <button
+ //                 onClick={() => setOpen(open === i ? null : i)}
+ //                 className="w-full flex justify-between items-center bg-blue-50 px-4 py-3"
+ //               >
+ //                 <span>
+ //                   <b>#{i + 1}</b> — {p.id} ({p.user_id})
+ //                 </span>
+ //                 <span className="text-gray-600">{open === i ? "▲" : "▼"}</span>
+ //               </button>
+ //               {open === i && (
+ //                 <div className="p-4 bg-white border-t text-sm space-y-2">
+ //                   <p className="text-gray-500">
+ //                     Created: {new Date(p.createdAt).toLocaleString()}
+ //                   </p>
+ //                   {Object.entries(p.stages).map(([stageName, stage]: any) => (
+ //                     <div
+ //                       key={stageName}
+ //                       className="border rounded-md p-3 hover:bg-gray-50"
+ //                     >
+ //                       <p>
+ //                         <b>Stage:</b> {stageName}
+ //                       </p>
+ //                       <p>
+ //                         <b>Status:</b>{" "}
+ //                         <span
+ //                           className={`font-semibold ${
+ //                             stage.status === "success"
+ //                               ? "text-green-600"
+ //                               : stage.status === "failed"
+ //                               ? "text-red-600"
+ //                               : "text-yellow-600"
+ //                           }`}
+ //                         >
+ //                           {stage.status}
+ //                         </span>
+ //                       </p>
+ //                       <p>
+ //                         <b>Message:</b> {stage.message}
+ //                       </p>
+ //                       <p className="text-gray-500 text-xs">
+ //                         Updated: {new Date(stage.updatedAt).toLocaleString()}
+ //                       </p>
+ //                     </div>
+ //                   ))}
+ //                 </div>
+ //               )}
+ //             </div>
+ //           ))}
+ //         </div>
+ //       </div>
+ //     </div>
+ //   );
+ // }
+ // "use client";
+ // import React, { useEffect, useState } from "react";
+ // export default function ProcessModalCards({ isOpen, onClose }: any) {
+ //   const [data, setData] = useState<any[]>([]);
+ //   useEffect(() => {
+ //     if (!isOpen) return;
+ //     fetch("https://api.partner.kashishindiapvtltd.com/viewprocess")
+ //       .then((res) => res.json())
+ //       .then((result) =>
+ //         setData(result.sort((a: any, b: any) => b.createdAt - a.createdAt))
+ //       );
+ //   }, [isOpen]);
+ //   if (!isOpen) return null;
+ //   return (
+ //     <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
+ //       <div className="bg-white p-6 rounded-2xl w-[90%] max-w-6xl shadow-xl relative overflow-y-auto max-h-[85vh]">
+ //         <button
+ //           onClick={onClose}
+ //           className="absolute top-3 right-4 text-gray-500 text-2xl font-bold hover:text-red-500"
+ //         >
+ //           ×
+ //         </button>
+ //         <h2 className="text-2xl font-bold text-blue-700 mb-4 text-center">
+ //           📋 Process History (Card View)
+ //         </h2>
+ //         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+ //           {data.map((p) => (
+ //             <div
+ //               key={p.id}
+ //               className="border rounded-xl p-4 shadow-sm hover:shadow-md transition"
+ //             >
+ //               <h3 className="font-semibold text-blue-700">
+ //                 Process ID: {p.id}
+ //               </h3>
+ //               <p className="text-gray-500 text-sm mb-2">
+ //                 User: {p.user_id} <br />
+ //                 Created: {new Date(p.createdAt).toLocaleString()}
+ //               </p>
+ //               {Object.entries(p.stages).map(([name, stage]: any) => (
+ //                 <div
+ //                   key={name}
+ //                   className="border-t mt-2 pt-2 text-sm text-gray-700"
+ //                 >
+ //                   <p>
+ //                     <b>{name}</b> —{" "}
+ //                     <span
+ //                       className={`font-semibold ${
+ //                         stage.status === "success"
+ //                           ? "text-green-600"
+ //                           : stage.status === "failed"
+ //                           ? "text-red-600"
+ //                           : "text-yellow-600"
+ //                       }`}
+ //                     >
+ //                       {stage.status}
+ //                     </span>
+ //                   </p>
+ //                   <p>{stage.message}</p>
+ //                   <p className="text-xs text-gray-500">
+ //                     Updated: {new Date(stage.updatedAt).toLocaleString()}
+ //                   </p>
+ //                 </div>
+ //               ))}
+ //             </div>
+ //           ))}
+ //         </div>
+ //       </div>
+ //     </div>
+ //   );
+ // }
+}}),
 "[project]/app/loginpage/page.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
@@ -503,7 +935,9 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$alert$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__AlertCircle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-alert.js [app-ssr] (ecmascript) <export default as AlertCircle>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$pen$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Edit$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/square-pen.js [app-ssr] (ecmascript) <export default as Edit>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$axios$2f$lib$2f$axios$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/axios/lib/axios.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Login$2f$ProcessModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/components/Login/ProcessModal.tsx [app-ssr] (ecmascript)");
 "use client";
+;
 ;
 ;
 ;
@@ -529,7 +963,7 @@ function CscIdsPage() {
     const [loginType, setLoginType] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [editingItem, setEditingItem] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     const [showEditModal, setShowEditModal] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    const [showProcess, setShowProcess] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [showProcess, setShowProcess] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(true);
     const [loadingId, setLoadingId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
     // ✅ Fetch Balance for a specific CSC ID
     const fetchBalance = async (cscId)=>{
@@ -1881,6 +2315,14 @@ function CscIdsPage() {
                 fileName: "[project]/app/loginpage/page.tsx",
                 lineNumber: 889,
                 columnNumber: 9
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Login$2f$ProcessModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                isOpen: showProcess,
+                onClose: ()=>setShowProcess(false)
+            }, void 0, false, {
+                fileName: "[project]/app/loginpage/page.tsx",
+                lineNumber: 895,
+                columnNumber: 8
             }, this)
         ]
     }, void 0, true, {
@@ -1893,4 +2335,4 @@ function CscIdsPage() {
 
 };
 
-//# sourceMappingURL=_61f1299f._.js.map
+//# sourceMappingURL=_86375293._.js.map
