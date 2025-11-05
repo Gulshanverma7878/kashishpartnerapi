@@ -694,12 +694,12 @@ function PaycardTableContent({ data, formatDate, formatCurrency, getStatusColor 
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Fragment"], {
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "overflow-x-auto",
+                className: "overflow-x-auto rounded-lg shadow-md border border-gray-500",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
-                    className: "w-full",
+                    className: "w-full min-w-[900px] table-auto",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("thead", {
-                            className: "bg-gray-50 border-b border-gray-200",
+                            className: "bg-gray-50 border-b border-gray-500 sticky top-0 z-10",
                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                 children: [
                                     "SR. No.",
@@ -713,109 +713,109 @@ function PaycardTableContent({ data, formatDate, formatCurrency, getStatusColor 
                                     "Updated At",
                                     "Actions"
                                 ].map((header)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
-                                        className: `px-6 py-3 text-xs font-semibold text-gray-700 uppercase tracking-wider border-t border-r ${header.includes("Balance") ? "text-right" : "text-left"}`,
+                                        className: `px-4 py-3 text-xs font-semibold text-gray-700 uppercase tracking-wider border-r last:border-r-0 ${header.includes("Balance") ? "text-right" : "text-left"}`,
                                         children: header
                                     }, header, false, {
                                         fileName: "[project]/components/topup/PaycardTableContent.tsx",
                                         lineNumber: 92,
-                                        columnNumber: 15
+                                        columnNumber: 11
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/components/topup/PaycardTableContent.tsx",
                                 lineNumber: 79,
-                                columnNumber: 11
+                                columnNumber: 7
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/topup/PaycardTableContent.tsx",
                             lineNumber: 78,
-                            columnNumber: 9
+                            columnNumber: 5
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
-                            className: "divide-y divide-gray-200",
+                            className: "divide-y divide-gray-500 bg-white",
                             children: data.length > 0 ? data.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
-                                    className: "hover:bg-gray-50 transition-colors",
+                                    className: "hover:bg-blue-50 transition-colors duration-200",
                                     children: [
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            className: "px-6 py-4 border-r border-t",
+                                            className: "px-4 py-3 border-r text-gray-700",
                                             children: index + 1
                                         }, void 0, false, {
                                             fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                            lineNumber: 109,
-                                            columnNumber: 17
+                                            lineNumber: 112,
+                                            columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            className: "px-6 py-4 border-r border-t",
+                                            className: "px-4 py-3 border-r",
                                             children: item.csc_id
                                         }, void 0, false, {
                                             fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                            lineNumber: 110,
-                                            columnNumber: 17
+                                            lineNumber: 113,
+                                            columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            className: "px-6 py-4 border-r border-t font-mono",
+                                            className: "px-4 py-3 border-r font-mono",
                                             children: item.card
                                         }, void 0, false, {
                                             fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                            lineNumber: 111,
-                                            columnNumber: 17
+                                            lineNumber: 114,
+                                            columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            className: "px-6 py-4 border-r border-t",
+                                            className: "px-4 py-3 border-r",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 className: `inline-flex px-3 py-1 text-xs font-medium rounded-full border ${getStatusColor(item.status)}`,
                                                 children: item.status
                                             }, void 0, false, {
                                                 fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                                lineNumber: 115,
-                                                columnNumber: 19
+                                                lineNumber: 116,
+                                                columnNumber: 15
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                            lineNumber: 114,
-                                            columnNumber: 17
+                                            lineNumber: 115,
+                                            columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            className: "px-6 py-4 text-right border-r border-t",
+                                            className: "px-4 py-3 border-r text-right",
                                             children: formatCurrency(item.opening_balance)
                                         }, void 0, false, {
                                             fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                            lineNumber: 123,
-                                            columnNumber: 17
+                                            lineNumber: 124,
+                                            columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            className: "px-6 py-4 text-right border-r border-t",
+                                            className: "px-4 py-3 border-r text-right",
                                             children: formatCurrency(item.amount)
                                         }, void 0, false, {
                                             fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                            lineNumber: 126,
-                                            columnNumber: 17
+                                            lineNumber: 127,
+                                            columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            className: "px-6 py-4 text-right border-r border-t",
+                                            className: "px-4 py-3 border-r text-right",
                                             children: formatCurrency(item.closing_balance)
                                         }, void 0, false, {
                                             fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                            lineNumber: 129,
-                                            columnNumber: 17
+                                            lineNumber: 130,
+                                            columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            className: "px-6 py-4 border-r border-t text-gray-600 text-sm",
+                                            className: "px-4 py-3 border-r text-gray-600 text-sm",
                                             children: formatDate(item.createdAt)
                                         }, void 0, false, {
                                             fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                            lineNumber: 132,
-                                            columnNumber: 17
+                                            lineNumber: 133,
+                                            columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            className: "px-6 py-4 border-r border-t text-gray-600 text-sm",
+                                            className: "px-4 py-3 border-r text-gray-600 text-sm",
                                             children: formatDate(item.updatedAt)
                                         }, void 0, false, {
                                             fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                            lineNumber: 135,
-                                            columnNumber: 17
+                                            lineNumber: 136,
+                                            columnNumber: 13
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                            className: "px-6 py-4 border-r border-t text-center",
+                                            className: "px-4 py-3 text-center",
                                             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                                 onClick: ()=>handleEdit(item),
                                                 className: "flex items-center justify-center gap-2 px-3 py-2 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition",
@@ -824,66 +824,58 @@ function PaycardTableContent({ data, formatDate, formatCurrency, getStatusColor 
                                                         className: "text-lg"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                                        lineNumber: 143,
-                                                        columnNumber: 23
+                                                        lineNumber: 144,
+                                                        columnNumber: 17
                                                     }, this),
-                                                    " ",
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                         className: "text-sm font-medium",
                                                         children: "Edit"
                                                     }, void 0, false, {
                                                         fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                                        lineNumber: 144,
-                                                        columnNumber: 23
+                                                        lineNumber: 145,
+                                                        columnNumber: 17
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                                lineNumber: 139,
-                                                columnNumber: 21
+                                                lineNumber: 140,
+                                                columnNumber: 15
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                            lineNumber: 138,
-                                            columnNumber: 17
+                                            lineNumber: 139,
+                                            columnNumber: 13
                                         }, this)
                                     ]
                                 }, item.id, true, {
                                     fileName: "[project]/components/topup/PaycardTableContent.tsx",
                                     lineNumber: 108,
-                                    columnNumber: 15
+                                    columnNumber: 11
                                 }, this)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
-                                    colSpan: 9,
-                                    className: "px-6 py-12 text-center border-t",
-                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: "text-gray-500",
-                                        children: "No paycards found"
-                                    }, void 0, false, {
-                                        fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                        lineNumber: 152,
-                                        columnNumber: 17
-                                    }, this)
+                                    colSpan: 10,
+                                    className: "px-4 py-12 text-center text-gray-500",
+                                    children: "No paycards found"
                                 }, void 0, false, {
                                     fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                    lineNumber: 151,
-                                    columnNumber: 15
+                                    lineNumber: 152,
+                                    columnNumber: 11
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                                lineNumber: 150,
-                                columnNumber: 13
+                                lineNumber: 151,
+                                columnNumber: 9
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/components/topup/PaycardTableContent.tsx",
                             lineNumber: 105,
-                            columnNumber: 9
+                            columnNumber: 5
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/components/topup/PaycardTableContent.tsx",
                     lineNumber: 76,
-                    columnNumber: 7
+                    columnNumber: 3
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/topup/PaycardTableContent.tsx",
@@ -898,7 +890,7 @@ function PaycardTableContent({ data, formatDate, formatCurrency, getStatusColor 
                 onSubmit: handleSubmit
             }, void 0, false, {
                 fileName: "[project]/components/topup/PaycardTableContent.tsx",
-                lineNumber: 163,
+                lineNumber: 162,
                 columnNumber: 7
             }, this)
         ]

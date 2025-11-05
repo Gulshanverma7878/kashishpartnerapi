@@ -72,93 +72,92 @@ export default function PaycardTableContent({
     <>
    
 
-    <div className="overflow-x-auto">
-      <table className="w-full">
-        {/* Table Header */}
-        <thead className="bg-gray-50 border-b border-gray-200">
-          <tr>
-            {[
-              "SR. No.",
-              "CSC ID",
-              "Card Number",
-              "Status",
-              "Opening Balance",
-              "TopUp Amount",
-              "Closing Balance",
-              "Created At",
-              "Updated At",
-              "Actions"
-            ].map((header) => (
-              <th
-                key={header}
-                className={`px-6 py-3 text-xs font-semibold text-gray-700 uppercase tracking-wider border-t border-r ${
-                  header.includes("Balance") ? "text-right" : "text-left"
-                }`}
+    <div className="overflow-x-auto rounded-lg shadow-md border border-gray-500">
+  <table className="w-full min-w-[900px] table-auto">
+    {/* Table Header */}
+    <thead className="bg-gray-50 border-b border-gray-500 sticky top-0 z-10">
+      <tr>
+        {[
+          "SR. No.",
+          "CSC ID",
+          "Card Number",
+          "Status",
+          "Opening Balance",
+          "TopUp Amount",
+          "Closing Balance",
+          "Created At",
+          "Updated At",
+          "Actions"
+        ].map((header) => (
+          <th
+            key={header}
+            className={`px-4 py-3 text-xs font-semibold text-gray-700 uppercase tracking-wider border-r last:border-r-0 ${
+              header.includes("Balance") ? "text-right" : "text-left"
+            }`}
+          >
+            {header}
+          </th>
+        ))}
+      </tr>
+    </thead>
+
+    {/* Table Body */}
+    <tbody className="divide-y divide-gray-500 bg-white">
+      {data.length > 0 ? (
+        data.map((item, index) => (
+          <tr
+            key={item.id}
+            className="hover:bg-blue-50 transition-colors duration-200"
+          >
+            <td className="px-4 py-3 border-r text-gray-700">{index + 1}</td>
+            <td className="px-4 py-3 border-r">{item.csc_id}</td>
+            <td className="px-4 py-3 border-r font-mono">{item.card}</td>
+            <td className="px-4 py-3 border-r">
+              <span
+                className={`inline-flex px-3 py-1 text-xs font-medium rounded-full border ${getStatusColor(
+                  item.status
+                )}`}
               >
-                {header}
-              </th>
-            ))}
+                {item.status}
+              </span>
+            </td>
+            <td className="px-4 py-3 border-r text-right">
+              {formatCurrency(item.opening_balance)}
+            </td>
+            <td className="px-4 py-3 border-r text-right">
+              {formatCurrency(item.amount)}
+            </td>
+            <td className="px-4 py-3 border-r text-right">
+              {formatCurrency(item.closing_balance)}
+            </td>
+            <td className="px-4 py-3 border-r text-gray-600 text-sm">
+              {formatDate(item.createdAt)}
+            </td>
+            <td className="px-4 py-3 border-r text-gray-600 text-sm">
+              {formatDate(item.updatedAt)}
+            </td>
+            <td className="px-4 py-3 text-center">
+              <button
+                onClick={() => handleEdit(item)}
+                className="flex items-center justify-center gap-2 px-3 py-2 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition"
+              >
+                <FiEdit className="text-lg" />
+                <span className="text-sm font-medium">Edit</span>
+              </button>
+            </td>
           </tr>
-        </thead>
+        ))
+      ) : (
+        <tr>
+          <td colSpan={10} className="px-4 py-12 text-center text-gray-500">
+            No paycards found
+          </td>
+        </tr>
+      )}
+    </tbody>
+  </table>
+</div>
 
-        {/* Table Body */}
-        <tbody className="divide-y divide-gray-200">
-          {data.length > 0 ? (
-            data.map((item, index) => (
-              <tr key={item.id} className="hover:bg-gray-50 transition-colors">
-                <td className="px-6 py-4 border-r border-t">{index + 1}</td>
-                <td className="px-6 py-4 border-r border-t">{item.csc_id}</td>
-                <td className="px-6 py-4 border-r border-t font-mono">
-                  {item.card}
-                </td>
-                <td className="px-6 py-4 border-r border-t">
-                  <span
-                    className={`inline-flex px-3 py-1 text-xs font-medium rounded-full border ${getStatusColor(
-                      item.status
-                    )}`}
-                  >
-                    {item.status}
-                  </span>
-                </td>
-                <td className="px-6 py-4 text-right border-r border-t">
-                  {formatCurrency(item.opening_balance)}
-                </td>
-                <td className="px-6 py-4 text-right border-r border-t">
-                  {formatCurrency(item.amount)}
-                </td>
-                <td className="px-6 py-4 text-right border-r border-t">
-                  {formatCurrency(item.closing_balance)}
-                </td>
-                <td className="px-6 py-4 border-r border-t text-gray-600 text-sm">
-                  {formatDate(item.createdAt)}
-                </td>
-                <td className="px-6 py-4 border-r border-t text-gray-600 text-sm">
-                  {formatDate(item.updatedAt)}
-                </td>
-                <td className="px-6 py-4 border-r border-t text-center">
-                    <button
-                      onClick={() => handleEdit(item)}
-                      className="flex items-center justify-center gap-2 px-3 py-2 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition"
-                    >
-                      <FiEdit className="text-lg" /> {/* ✨ Edit Icon */}
-                      <span className="text-sm font-medium">Edit</span>
-                    </button>
-                  </td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan={9} className="px-6 py-12 text-center border-t">
-                <p className="text-gray-500">No paycards found</p>
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
-
-
-
-    </div>
  {/* Modal */}
       <EditModal
         isOpen={isModalOpen}
