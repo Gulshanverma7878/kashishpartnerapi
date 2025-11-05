@@ -10,6 +10,8 @@ import {
 } from "lucide-react";
 import SummarySection from "@/components/topup/SummarySection";
 import SummaryGrid from "@/components/topup/SummaryGrid";
+import PaycardTableContent from "@/components/topup/PaycardTableContent";
+import Pagination from "@/components/topup/Pagination";
 
 export default function PaycardTable() {
   const [data, setData] = useState([]);
@@ -69,7 +71,8 @@ export default function PaycardTable() {
       createdDate >= start &&
       createdDate <= new Date(end.setHours(23, 59, 59, 999))
     );
-  });
+  })
+  .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
   console.log(filteredData);
 
@@ -135,161 +138,23 @@ export default function PaycardTable() {
           setStartDate={setStartDate}
           setEndDate={setEndDate}
         />
-        {/* Table */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-          {loading ? (
-            <div className="flex items-center justify-center py-12">
-              <Loader2 className="w-8 h-8 animate-spin text-blue-600" />
-              <span className="ml-3 text-gray-600">Loading paycards...</span>
-            </div>
-          ) : error ? (
-            <div className="flex items-center justify-center py-12">
-              <div className="text-center">
-                <p className="text-red-600 font-medium mb-2">
-                  Error loading data
-                </p>
-                <p className="text-gray-600 text-sm">{error}</p>
-              </div>
-            </div>
-          ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead className="bg-gray-50 border-b border-gray-200">
-                  <tr>
-                    <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
-                      SR. No.
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
-                      CSC ID
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
-                      Card Number
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
-                      Status
-                    </th>
-                    <th className="px-6 py-3 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
-                      Opening Balance
-                    </th>
-                    <th className="px-6 py-3 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
-                      TopUp Amount
-                    </th>
-                    <th className="px-6 py-3 text-right text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
-                      Closing Balance
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
-                      Created At
-                    </th>
-                    <th className="px-6 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider  border-r  border-t">
-                      Updated At
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-200">
-                  {paginatedData.length > 0 ? (
-                    paginatedData.map((item, index) => (
-                      <tr
-                        key={item.id}
-                        className="hover:bg-gray-50 transition-colors"
-                      >
-                        <td className="px-6 py-4 whitespace-nowrap border-r border-t">
-                          <span className="text-sm font-medium text-gray-900">
-                            {index + 1}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap border-r  border-t">
-                          <span className="text-sm font-medium text-gray-900">
-                            {item.csc_id}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap border-r  border-t">
-                          <span className="text-sm text-gray-700 font-mono">
-                            {item.card}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap border-r  border-t">
-                          <span
-                            className={`inline-flex px-3 py-1 text-xs font-medium rounded-full border ${getStatusColor(
-                              item.status
-                            )}`}
-                          >
-                            {item.status}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right border-r  border-t">
-                          <span className="text-sm font-medium text-gray-900">
-                            {formatCurrency(item.opening_balance)}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right border-r  border-t">
-                          <span className="text-sm font-medium text-gray-900">
-                            {formatCurrency(item.amount)}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-right border-r  border-t">
-                          <span className="text-sm font-medium text-gray-900">
-                            {formatCurrency(item.closing_balance)}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap border-r  border-t">
-                          <span className="text-sm text-gray-600">
-                            {formatDate(item.createdAt)}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap border-r  border-t">
-                          <span className="text-sm text-gray-600">
-                            {formatDate(item.updatedAt)}
-                          </span>
-                        </td>
-                      </tr>
-                    ))
-                  ) : (
-                    <tr>
-                      <td
-                        colSpan="7"
-                        className="px-6 py-12 text-center  border-t"
-                      >
-                        <p className="text-gray-500">No paycards found</p>
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-          )}
+        {/* // Inside your return statement where table is shown: */}
+        <PaycardTableContent
+          data={paginatedData}
+          formatDate={formatDate}
+          formatCurrency={formatCurrency}
+          getStatusColor={getStatusColor}
+        />
 
-          {/* Pagination */}
-          {!loading && !error && totalPages > 1 && (
-            <div className="flex items-center justify-between px-6 py-4 border-t border-gray-200 bg-gray-50">
-              <div className="text-sm text-gray-600">
-                Showing {startIndex + 1} to{" "}
-                {Math.min(startIndex + itemsPerPage, data.length)} of{" "}
-                {data.length} results
-              </div>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                  disabled={currentPage === 1}
-                  className="p-2 rounded-lg border border-gray-300 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                >
-                  <ChevronLeft className="w-5 h-5" />
-                </button>
-                <span className="text-sm text-gray-700 px-3">
-                  Page {currentPage} of {totalPages}
-                </span>
-                <button
-                  onClick={() =>
-                    setCurrentPage((p) => Math.min(totalPages, p + 1))
-                  }
-                  disabled={currentPage === totalPages}
-                  className="p-2 rounded-lg border border-gray-300 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-                >
-                  <ChevronRight className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-          )}
-        </div>
+        {!loading && !error && totalPages > 1 && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            totalItems={filteredData.length}
+            itemsPerPage={itemsPerPage}
+            onPageChange={setCurrentPage}
+          />
+        )}
       </div>
     </div>
   );
