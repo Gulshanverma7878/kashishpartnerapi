@@ -699,6 +699,10 @@
     height: 100vh;
   }
 
+  .max-h-64 {
+    max-height: calc(var(--spacing) * 64);
+  }
+
   .max-h-\[70vh\] {
     max-height: 70vh;
   }
@@ -2657,10 +2661,6 @@
 
   .disabled\:opacity-50:disabled {
     opacity: .5;
-  }
-
-  .disabled\:opacity-60:disabled {
-    opacity: .6;
   }
 
   .disabled\:opacity-70:disabled {

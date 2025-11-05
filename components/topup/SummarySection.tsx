@@ -28,8 +28,8 @@ const SummarySection: React.FC<SummarySectionProps> = ({ type, title, data }) =>
         <h2 className="text-lg font-semibold text-gray-800">{title}</h2>
       </div>
 
-      {/* Data List Section */}
-      <div className="grid gap-3">
+      {/* Data List Section with fixed height & scroll */}
+      <div className="grid gap-3 max-h-64 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
         {data.map((item: any, index: number) => (
           <div
             key={index}

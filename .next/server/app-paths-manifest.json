@@ -1,8 +1,6 @@
 {
-  "/Profile/page": "app/Profile/page.js",
+  "/Login/page": "app/Login/page.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/csc/cardManagement/page": "app/csc/cardManagement/page.js",
-  "/csc/history/page": "app/csc/history/page.js",
   "/csc/topup/page": "app/csc/topup/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/fundRequest/page": "app/fundRequest/page.js",

@@ -33,7 +33,7 @@ const SummarySection = ({ type, title, data })=>{
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "grid gap-3",
+                className: "grid gap-3 max-h-64 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100",
                 children: data.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                         className: "flex items-center justify-between rounded-lg border border-gray-200 hover:border-blue-400 transition-colors duration-200 p-3 shadow-sm",
                         children: [
@@ -1022,9 +1022,12 @@ function PaycardTable() {
     // 🔹 Helper functions
     const getStatusColor = (status)=>{
         switch(status?.toLowerCase()){
-            case "active":
             case "success":
                 return "bg-green-100 text-green-800 border-green-200";
+            case "pending":
+                return "bg-yellow-100 text-yellow-800 border-yellow-200";
+            case "failed":
+                return "bg-red-100 text-red-800 border-red-200";
             case "inactive":
                 return "bg-gray-100 text-gray-800 border-gray-200";
             case "suspended":
@@ -1061,7 +1064,7 @@ function PaycardTable() {
                             children: "Paycards"
                         }, void 0, false, {
                             fileName: "[project]/app/csc/topup/page.jsx",
-                            lineNumber: 74,
+                            lineNumber: 78,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1069,13 +1072,13 @@ function PaycardTable() {
                             children: "Manage and view all paycard transactions"
                         }, void 0, false, {
                             fileName: "[project]/app/csc/topup/page.jsx",
-                            lineNumber: 75,
+                            lineNumber: 79,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 73,
+                    lineNumber: 77,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$topup$2f$SummaryGrid$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1087,7 +1090,7 @@ function PaycardTable() {
                     setEndDate: setEndDate
                 }, void 0, false, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 78,
+                    lineNumber: 82,
                     columnNumber: 9
                 }, this),
                 isLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1096,12 +1099,12 @@ function PaycardTable() {
                         className: "animate-spin text-blue-500 w-8 h-8"
                     }, void 0, false, {
                         fileName: "[project]/app/csc/topup/page.jsx",
-                        lineNumber: 89,
+                        lineNumber: 93,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 88,
+                    lineNumber: 92,
                     columnNumber: 11
                 }, this) : isError ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-center text-red-600 py-4",
@@ -1111,7 +1114,7 @@ function PaycardTable() {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 92,
+                    lineNumber: 96,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$topup$2f$PaycardTableContent$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                     data: paginatedData,
@@ -1120,7 +1123,7 @@ function PaycardTable() {
                     getStatusColor: getStatusColor
                 }, void 0, false, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 94,
+                    lineNumber: 98,
                     columnNumber: 11
                 }, this),
                 !isLoading && !isError && totalPages > 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$topup$2f$Pagination$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1131,18 +1134,18 @@ function PaycardTable() {
                     onPageChange: setCurrentPage
                 }, void 0, false, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 103,
+                    lineNumber: 107,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/csc/topup/page.jsx",
-            lineNumber: 72,
+            lineNumber: 76,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/csc/topup/page.jsx",
-        lineNumber: 71,
+        lineNumber: 75,
         columnNumber: 5
     }, this);
 }
