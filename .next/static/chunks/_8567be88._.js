@@ -15,12 +15,12 @@ const SummarySection = ({ type, title, data })=>{
     // ✅ Calculate total amount
     const totalAmount = data.reduce((sum, item)=>sum + (item.amount || 0), 0);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "bg-white rounded-lg shadow-md border border-gray-300 p-4 md:p-6",
+        className: "bg-white rounded-lg shadow-sm border border-gray-200 p-3 md:p-4",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-4 border-b pb-3",
+                className: "flex items-center justify-between mb-3 border-b pb-2",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                    className: "text-lg font-semibold text-gray-800",
+                    className: "text-base font-semibold text-gray-800",
                     children: title
                 }, void 0, false, {
                     fileName: "[project]/components/topup/SummarySection.tsx",
@@ -33,12 +33,12 @@ const SummarySection = ({ type, title, data })=>{
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "grid gap-3 max-h-64 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100",
+                className: "space-y-2 max-h-52 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100",
                 children: data.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center justify-between rounded-lg border border-gray-200 hover:border-blue-400 transition-colors duration-200 p-3 shadow-sm",
+                        className: "flex items-center justify-between border border-gray-100 rounded-md px-2 py-2 hover:border-blue-300 transition",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-gray-700 font-medium",
+                                className: "text-sm text-gray-700 font-medium truncate",
                                 children: type === "card" ? item.card : item.cscId
                             }, void 0, false, {
                                 fileName: "[project]/components/topup/SummarySection.tsx",
@@ -46,7 +46,7 @@ const SummarySection = ({ type, title, data })=>{
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-green-700 font-semibold",
+                                className: "text-sm text-green-700 font-semibold",
                                 children: [
                                     "₹ ",
                                     item.amount.toLocaleString()
@@ -68,9 +68,9 @@ const SummarySection = ({ type, title, data })=>{
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "border-t pt-3 text-right mt-4",
+                className: "border-t pt-2 mt-3 text-right",
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                    className: "text-gray-800 font-semibold",
+                    className: "text-sm text-gray-800 font-semibold",
                     children: [
                         "Total:",
                         " ",
@@ -129,7 +129,6 @@ var _s = __turbopack_context__.k.signature();
 ;
 const SummaryGrid = ({ cardData, cscData, startDate, endDate, setStartDate, setEndDate })=>{
     _s();
-    // ✅ Utility function: aggregate by key (card or csc_id)
     const aggregateByKey = (data, key)=>{
         return data.filter((item)=>item.status === "SUCCESS").reduce((acc, item)=>{
             const k = item[key];
@@ -138,7 +137,6 @@ const SummaryGrid = ({ cardData, cscData, startDate, endDate, setStartDate, setE
             return acc;
         }, {});
     };
-    // ✅ useMemo for optimized aggregation (only runs when data changes)
     const processedCardData = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
         "SummaryGrid.useMemo[processedCardData]": ()=>{
             const aggregated = aggregateByKey(cardData, "card");
@@ -166,13 +164,13 @@ const SummaryGrid = ({ cardData, cscData, startDate, endDate, setStartDate, setE
         cscData
     ]);
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "bg-white rounded-lg shadow-md border border-gray-300 p-4 md:p-6 mb-6",
+        className: "bg-white rounded-lg shadow border border-gray-200 p-4 md:p-5 mb-4",
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-6 border-b pb-3",
+                className: "flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-3",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "text-lg font-semibold text-gray-800",
+                        className: "text-base font-semibold text-gray-800",
                         children: "Summary Report"
                     }, void 0, false, {
                         fileName: "[project]/components/topup/SummaryGrid.tsx",
@@ -180,13 +178,13 @@ const SummaryGrid = ({ cardData, cscData, startDate, endDate, setStartDate, setE
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "flex items-center gap-2",
+                        className: "flex items-center gap-1.5",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
                                 type: "date",
                                 value: startDate,
                                 onChange: (e)=>setStartDate(e.target.value),
-                                className: "border border-gray-300 rounded-md px-2 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-blue-400"
+                                className: "border border-gray-300 rounded-md px-2 py-1 text-xs focus:outline-none focus:ring-1 focus:ring-blue-400"
                             }, void 0, false, {
                                 fileName: "[project]/components/topup/SummaryGrid.tsx",
                                 lineNumber: 76,
@@ -204,7 +202,7 @@ const SummaryGrid = ({ cardData, cscData, startDate, endDate, setStartDate, setE
                                 type: "date",
                                 value: endDate,
                                 onChange: (e)=>setEndDate(e.target.value),
-                                className: "border border-gray-300 rounded-md px-2 py-2 text-xs focus:outline-none focus:ring-1 focus:ring-blue-400"
+                                className: "border border-gray-300 rounded-md px-2 py-1 text-xs focus:outline-none focus:ring-1 focus:ring-blue-400"
                             }, void 0, false, {
                                 fileName: "[project]/components/topup/SummaryGrid.tsx",
                                 lineNumber: 83,
@@ -223,7 +221,7 @@ const SummaryGrid = ({ cardData, cscData, startDate, endDate, setStartDate, setE
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "grid grid-cols-1 md:grid-cols-2 gap-4",
+                className: "grid grid-cols-1 md:grid-cols-2 gap-3",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$topup$2f$SummarySection$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                         type: "card",
@@ -240,7 +238,7 @@ const SummaryGrid = ({ cardData, cscData, startDate, endDate, setStartDate, setE
                         data: processedCscData
                     }, void 0, false, {
                         fileName: "[project]/components/topup/SummaryGrid.tsx",
-                        lineNumber: 95,
+                        lineNumber: 99,
                         columnNumber: 9
                     }, this)
                 ]
@@ -1124,35 +1122,10 @@ function PaycardTable() {
         }).format(parseFloat(amount));
     // 🔹 UI
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "w-full p-6 bg-gray-50 min-h-screen",
+        className: "w-full  bg-gray-50 min-h-screen",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "max-w-7xl mx-auto",
             children: [
-                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "mb-6",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                            className: "text-3xl font-bold text-gray-900 mb-2",
-                            children: "Paycards"
-                        }, void 0, false, {
-                            fileName: "[project]/app/csc/topup/page.jsx",
-                            lineNumber: 78,
-                            columnNumber: 11
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                            className: "text-gray-600",
-                            children: "Manage and view all paycard transactions"
-                        }, void 0, false, {
-                            fileName: "[project]/app/csc/topup/page.jsx",
-                            lineNumber: 79,
-                            columnNumber: 11
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 77,
-                    columnNumber: 9
-                }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$topup$2f$SummaryGrid$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                     cardData: filteredData,
                     cscData: filteredData,
@@ -1162,7 +1135,7 @@ function PaycardTable() {
                     setEndDate: setEndDate
                 }, void 0, false, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 82,
+                    lineNumber: 77,
                     columnNumber: 9
                 }, this),
                 isLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1171,12 +1144,12 @@ function PaycardTable() {
                         className: "animate-spin text-blue-500 w-8 h-8"
                     }, void 0, false, {
                         fileName: "[project]/app/csc/topup/page.jsx",
-                        lineNumber: 93,
+                        lineNumber: 88,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 92,
+                    lineNumber: 87,
                     columnNumber: 11
                 }, this) : isError ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-center text-red-600 py-4",
@@ -1186,7 +1159,7 @@ function PaycardTable() {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 96,
+                    lineNumber: 91,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$topup$2f$PaycardTableContent$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                     data: paginatedData,
@@ -1195,7 +1168,7 @@ function PaycardTable() {
                     getStatusColor: getStatusColor
                 }, void 0, false, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 98,
+                    lineNumber: 93,
                     columnNumber: 11
                 }, this),
                 !isLoading && !isError && totalPages > 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$topup$2f$Pagination$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1206,7 +1179,7 @@ function PaycardTable() {
                     onPageChange: setCurrentPage
                 }, void 0, false, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 107,
+                    lineNumber: 102,
                     columnNumber: 11
                 }, this)
             ]
