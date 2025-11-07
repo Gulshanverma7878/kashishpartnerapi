@@ -552,9 +552,9 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/lib/axios.ts [app-client] (ecmascript)");
 ;
-async function fetchPaycards() {
+async function fetchPaycards(startDate, endDate) {
     try {
-        const response = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["axiosInstance"].get("/paycardlist");
+        const response = await __TURBOPACK__imported__module__$5b$project$5d2f$lib$2f$axios$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["axiosInstance"].get(`/paycardlist?startDate=${startDate}&endDate=${endDate}`);
         const result = response.data;
         if (!result.success || !result.cards) {
             throw new Error("Invalid data format");
@@ -1015,27 +1015,34 @@ if (typeof globalThis.$RefreshHelpers$ === 'object' && globalThis.$RefreshHelper
 
 var { g: global, __dirname, k: __turbopack_refresh__, m: module } = __turbopack_context__;
 {
-// 📁 hooks/usePaycards.ts
 __turbopack_context__.s({
     "usePaycards": (()=>usePaycards)
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$apis$2f$paycardService$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/apis/paycardService/index.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@tanstack/react-query/build/modern/useQuery.js [app-client] (ecmascript)");
 var _s = __turbopack_context__.k.signature();
+"use client";
 ;
 ;
-const usePaycards = ()=>{
+const usePaycards = (startDate, endDate)=>{
     _s();
-    return (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
+    // 👇 React Query setup
+    const query = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"])({
         queryKey: [
-            "paycards"
+            "paycards",
+            startDate,
+            endDate
         ],
-        queryFn: __TURBOPACK__imported__module__$5b$project$5d2f$apis$2f$paycardService$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["fetchPaycards"],
+        queryFn: {
+            "usePaycards.useQuery[query]": ()=>(0, __TURBOPACK__imported__module__$5b$project$5d2f$apis$2f$paycardService$2f$index$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["fetchPaycards"])(startDate, endDate)
+        }["usePaycards.useQuery[query]"],
         staleTime: 1000 * 60 * 5,
-        refetchOnWindowFocus: false
+        refetchOnWindowFocus: false,
+        enabled: !!startDate && !!endDate
     });
+    return query;
 };
-_s(usePaycards, "4ZpngI1uv+Uo3WQHEZmTQ5FNM+k=", false, function() {
+_s(usePaycards, "c7fxJWDO4uMGjIdKMJSj1aiS9wg=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$tanstack$2f$react$2d$query$2f$build$2f$modern$2f$useQuery$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useQuery"]
     ];
@@ -1119,12 +1126,14 @@ var _s = __turbopack_context__.k.signature();
 function PaycardTable() {
     _s();
     const [currentPage, setCurrentPage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(1);
-    const [startDate, setStartDate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
-    const [endDate, setEndDate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("");
     const [statusFilter, setStatusFilter] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("All"); // 👈 added new state
     const itemsPerPage = 10;
-    // ✅ Custom Hook
-    const { data = [], isLoading, isError, error } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$Topup$2f$useGetTopup$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePaycards"])();
+    const today = new Date().toISOString().split("T")[0];
+    // 👇 Initialize both startDate & endDate with today's date
+    const [startDate, setStartDate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(today);
+    const [endDate, setEndDate] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(today);
+    // 👇 Pass these to your custom hook
+    const { data = [], isLoading, isError, error, refetch } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$Topup$2f$useGetTopup$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePaycards"])(startDate, endDate);
     // 🔹 Filter + Sort
     const filteredData = data.filter((item)=>{
         // 📅 Date filter
@@ -1160,7 +1169,7 @@ function PaycardTable() {
                     setEndDate: setEndDate
                 }, void 0, false, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 52,
+                    lineNumber: 76,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1172,7 +1181,7 @@ function PaycardTable() {
                             children: "Filter by Status:"
                         }, void 0, false, {
                             fileName: "[project]/app/csc/topup/page.jsx",
-                            lineNumber: 63,
+                            lineNumber: 87,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -1186,7 +1195,7 @@ function PaycardTable() {
                                     children: "All"
                                 }, void 0, false, {
                                     fileName: "[project]/app/csc/topup/page.jsx",
-                                    lineNumber: 72,
+                                    lineNumber: 96,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1194,7 +1203,7 @@ function PaycardTable() {
                                     children: "Failed"
                                 }, void 0, false, {
                                     fileName: "[project]/app/csc/topup/page.jsx",
-                                    lineNumber: 73,
+                                    lineNumber: 97,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1202,7 +1211,7 @@ function PaycardTable() {
                                     children: "Success"
                                 }, void 0, false, {
                                     fileName: "[project]/app/csc/topup/page.jsx",
-                                    lineNumber: 74,
+                                    lineNumber: 98,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1210,19 +1219,19 @@ function PaycardTable() {
                                     children: "Pending"
                                 }, void 0, false, {
                                     fileName: "[project]/app/csc/topup/page.jsx",
-                                    lineNumber: 75,
+                                    lineNumber: 99,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/csc/topup/page.jsx",
-                            lineNumber: 66,
+                            lineNumber: 90,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 62,
+                    lineNumber: 86,
                     columnNumber: 9
                 }, this),
                 isLoading ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1231,12 +1240,12 @@ function PaycardTable() {
                         className: "animate-spin text-blue-500 w-8 h-8"
                     }, void 0, false, {
                         fileName: "[project]/app/csc/topup/page.jsx",
-                        lineNumber: 82,
+                        lineNumber: 106,
                         columnNumber: 13
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 81,
+                    lineNumber: 105,
                     columnNumber: 11
                 }, this) : isError ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                     className: "text-center text-red-600 py-4",
@@ -1246,7 +1255,7 @@ function PaycardTable() {
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 85,
+                    lineNumber: 109,
                     columnNumber: 11
                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$topup$2f$PaycardTableContent$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
                     data: paginatedData,
@@ -1255,7 +1264,7 @@ function PaycardTable() {
                     getStatusColor: __TURBOPACK__imported__module__$5b$project$5d2f$utils$2f$paycardUtils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["getStatusColor"]
                 }, void 0, false, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 87,
+                    lineNumber: 113,
                     columnNumber: 11
                 }, this),
                 !isLoading && !isError && totalPages > 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$topup$2f$Pagination$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -1266,18 +1275,18 @@ function PaycardTable() {
                     onPageChange: setCurrentPage
                 }, void 0, false, {
                     fileName: "[project]/app/csc/topup/page.jsx",
-                    lineNumber: 97,
+                    lineNumber: 123,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/app/csc/topup/page.jsx",
-            lineNumber: 50,
+            lineNumber: 74,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/app/csc/topup/page.jsx",
-        lineNumber: 49,
+        lineNumber: 73,
         columnNumber: 5
     }, this);
 } // "use client";
@@ -1348,7 +1357,7 @@ function PaycardTable() {
  //     </div>
  //   );
  // }
-_s(PaycardTable, "q+rCkyMMu2ZhQeOK6kkbtL5rEtA=", false, function() {
+_s(PaycardTable, "pkJ8XK6L368mJcUlth0yzJocskE=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$hooks$2f$Topup$2f$useGetTopup$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePaycards"]
     ];

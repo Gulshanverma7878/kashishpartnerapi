@@ -6,17 +6,30 @@ import SummaryGrid from "@/components/topup/SummaryGrid";
 import PaycardTableContent from "@/components/topup/PaycardTableContent";
 import Pagination from "@/components/topup/Pagination";
 import { usePaycards } from "@/hooks/Topup/useGetTopup";
-import { formatCurrency, formatDate, getStatusColor } from "@/utils/paycardUtils";
+import {
+  formatCurrency,
+  formatDate,
+  getStatusColor,
+} from "@/utils/paycardUtils";
 
 export default function PaycardTable() {
   const [currentPage, setCurrentPage] = useState(1);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
   const [statusFilter, setStatusFilter] = useState("All"); // 👈 added new state
   const itemsPerPage = 10;
+  const today = new Date().toISOString().split("T")[0];
 
-  // ✅ Custom Hook
-  const { data = [], isLoading, isError, error } = usePaycards();
+  // 👇 Initialize both startDate & endDate with today's date
+  const [startDate, setStartDate] = useState(today);
+  const [endDate, setEndDate] = useState(today);
+
+  // 👇 Pass these to your custom hook
+  const {
+    data = [],
+    isLoading,
+    isError,
+    error,
+    refetch,
+  } = usePaycards(startDate, endDate);
 
   // 🔹 Filter + Sort
   const filteredData = data
@@ -26,13 +39,21 @@ export default function PaycardTable() {
         const createdDate = new Date(item.createdAt);
         const start = new Date(startDate);
         const end = new Date(endDate);
-        if (!(createdDate >= start && createdDate <= new Date(end.setHours(23, 59, 59, 999)))) {
+        if (
+          !(
+            createdDate >= start &&
+            createdDate <= new Date(end.setHours(23, 59, 59, 999))
+          )
+        ) {
           return false;
         }
       }
 
       // ⚙️ Status filter
-      if (statusFilter !== "All" && item.status?.toLowerCase() !== statusFilter.toLowerCase()) {
+      if (
+        statusFilter !== "All" &&
+        item.status?.toLowerCase() !== statusFilter.toLowerCase()
+      ) {
         return false;
       }
 
@@ -43,7 +64,10 @@ export default function PaycardTable() {
   // 🔹 Pagination
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
-  const paginatedData = filteredData.slice(startIndex, startIndex + itemsPerPage);
+  const paginatedData = filteredData.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   return (
     <div className="w-full bg-gray-50 min-h-screen">
@@ -82,7 +106,9 @@ export default function PaycardTable() {
             <Loader2 className="animate-spin text-blue-500 w-8 h-8" />
           </div>
         ) : isError ? (
-          <p className="text-center text-red-600 py-4">❌ Error: {error.message}</p>
+          <p className="text-center text-red-600 py-4">
+            ❌ Error: {error.message}
+          </p>
         ) : (
           <PaycardTableContent
             data={paginatedData}
@@ -107,19 +133,6 @@ export default function PaycardTable() {
   );
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // "use client";
 
 // import { useState } from "react";
@@ -136,7 +149,6 @@ export default function PaycardTable() {
 //   const [startDate, setStartDate] = useState("");
 //   const [endDate, setEndDate] = useState("");
 //   const itemsPerPage = 10;
-  
 
 //   // ✅ Custom Hook
 //   const { data = [], isLoading, isError, error } = usePaycards();
@@ -156,8 +168,6 @@ export default function PaycardTable() {
 //   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 //   const startIndex = (currentPage - 1) * itemsPerPage;
 //   const paginatedData = filteredData.slice(startIndex, startIndex + itemsPerPage);
-
-
 
 //   return (
 //     <div className="w-full  bg-gray-50 min-h-screen">

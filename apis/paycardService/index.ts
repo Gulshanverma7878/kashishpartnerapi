@@ -3,9 +3,12 @@
 
 import { axiosInstance } from "@/lib/axios";
 
-export async function fetchPaycards() {
+// ?startDate=2025-11-01&endDate=2025-11-06
+
+export async function fetchPaycards(startDate?: string, endDate?: string) {
   try {
-    const response = await axiosInstance.get("/paycardlist");
+     
+    const response = await axiosInstance.get(`/paycardlist?startDate=${startDate}&endDate=${endDate}`);
 
     const result = response.data;
 
