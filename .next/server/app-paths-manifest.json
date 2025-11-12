@@ -1,6 +1,8 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/csc/topup/page": "app/csc/topup/page.js",
+  "/developer/page": "app/developer/page.js",
+  "/document/page": "app/document/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/loginpage/page": "app/loginpage/page.js",
   "/page": "app/page.js"
 }

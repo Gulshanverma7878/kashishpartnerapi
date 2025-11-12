@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import axios from "axios";
 import ProcessModal from "@/components/Login/ProcessModal";
+import TransactionHistoryPopup from "@/components/Login/TransactionHistoryPopup";
 
 interface CscDataItem {
   id: string | number;
@@ -55,6 +56,9 @@ export default function CscIdsPage() {
   const [showProcess, setShowProcess] = useState<boolean>(false);
 
   const [loadingId, setLoadingId] = useState<number | string | null>(null);
+
+  const [showPopup, setShowPopup] = useState(false);
+
 
   // ✅ Fetch Balance for a specific CSC ID
   const fetchBalance = async (cscId: string): Promise<void> => {
@@ -241,18 +245,6 @@ export default function CscIdsPage() {
     }
   };
 
-  // const handleDigiLogin = (item: CscDataItem): void => {
-  //   try {
-  //     const url = `https://api.partner.kashishindiapvtltd.com/api/cscsession/Logincsc/login/digi?user_id=${item.cscId}&password=${item.password}&csc_id=${userid}`;
-  //     console.log("Opening Digi Login URL:", url);
-  //     setIframeUrl(url);
-  //     setLoginType("digi");
-  //     setIframeLoading(true);
-  //   } catch (error) {
-  //     console.error("Error in handleDigiLogin:", error);
-  //     alert("Failed to load Digi Login. Please try again.");
-  //   }
-  // };
 
   const handleDigiLogin = async (item: CscDataItem): Promise<void> => {
     try {
@@ -386,6 +378,11 @@ export default function CscIdsPage() {
         console.error("Error updating amount limit:", error);
       });
   };
+
+
+
+
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-gray-900 to-slate-900 p-4 md:p-8">
@@ -568,6 +565,9 @@ export default function CscIdsPage() {
                       Start Loading
                     </th>
                     <th className="px-6 py-4 text-left font-bold text-sm">
+                      Transactions History
+                    </th>
+                    <th className="px-6 py-4 text-left font-bold text-sm">
                       Actions
                     </th>
                     <th className="px-6 py-4 text-left font-bold text-sm">
@@ -696,6 +696,21 @@ export default function CscIdsPage() {
                             <Power className="w-5 h-5" />
                           </button>
                         </td>
+
+                        <td className="px-6 py-4">
+                          <button
+                            onClick={() => {
+                              setSelecteCscId(item.cscId);
+                              setShowPopup(true);
+                            }}
+                            className="bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white px-4 py-2 rounded-lg font-bold shadow-lg transition duration-300 transform hover:scale-105 flex items-center gap-2"
+                          >
+                            <Eye className="w-4 h-4" /> View
+                          </button>
+                        </td>
+
+
+
                         <td className="px-6 py-4 flex text-center mt-4 gap-2 ">
                           <button
                             onClick={() => handleEdit(item)}
@@ -719,6 +734,8 @@ export default function CscIdsPage() {
                             <Trash2 className="w-4 h-4" />
                           </button>
                         </td>
+
+
                         <td className="px-6 py-4">
                           <button
                             onClick={() => {
@@ -730,6 +747,9 @@ export default function CscIdsPage() {
                             <Eye className="w-4 h-4" /> View
                           </button>
                         </td>
+
+
+
                       </tr>
                     ))
                   )}
@@ -884,6 +904,13 @@ export default function CscIdsPage() {
         isOpen={showProcess}
         onClose={() => setShowProcess(false)}
       />
+
+      {showPopup && (
+        <TransactionHistoryPopup
+          cscId={selecteCscId}
+          onClose={() => setShowPopup(false)}
+        />
+      )}
     </div>
   );
 }

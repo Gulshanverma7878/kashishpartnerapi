@@ -816,6 +816,7 @@ function CscIdsPage() {
     const [showEditModal, setShowEditModal] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [showProcess, setShowProcess] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     const [loadingId, setLoadingId] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(null);
+    const [showPopup, setShowPopup] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
     // ✅ Fetch Balance for a specific CSC ID
     const fetchBalance = async (cscId)=>{
         try {
@@ -957,18 +958,6 @@ function CscIdsPage() {
                 }));
         }
     };
-    // const handleDigiLogin = (item: CscDataItem): void => {
-    //   try {
-    //     const url = `https://api.partner.kashishindiapvtltd.com/api/cscsession/Logincsc/login/digi?user_id=${item.cscId}&password=${item.password}&csc_id=${userid}`;
-    //     console.log("Opening Digi Login URL:", url);
-    //     setIframeUrl(url);
-    //     setLoginType("digi");
-    //     setIframeLoading(true);
-    //   } catch (error) {
-    //     console.error("Error in handleDigiLogin:", error);
-    //     alert("Failed to load Digi Login. Please try again.");
-    //   }
-    // };
     const handleDigiLogin = async (item)=>{
         try {
             setLoadingId(item.id); // ✅ start loading for this row
@@ -1082,7 +1071,7 @@ function CscIdsPage() {
                                 children: "My CSC IDs"
                             }, void 0, false, {
                                 fileName: "[project]/app/loginpage/page.tsx",
-                                lineNumber: 395,
+                                lineNumber: 391,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1090,13 +1079,13 @@ function CscIdsPage() {
                                 children: "Manage and monitor your CSC accounts efficiently"
                             }, void 0, false, {
                                 fileName: "[project]/app/loginpage/page.tsx",
-                                lineNumber: 398,
+                                lineNumber: 394,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/loginpage/page.tsx",
-                        lineNumber: 394,
+                        lineNumber: 390,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1112,7 +1101,7 @@ function CscIdsPage() {
                                             children: "Start Date"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 408,
+                                            lineNumber: 404,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1122,13 +1111,13 @@ function CscIdsPage() {
                                             className: "bg-slate-700/50 border border-slate-600 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition duration-200"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 411,
+                                            lineNumber: 407,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 407,
+                                    lineNumber: 403,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1139,7 +1128,7 @@ function CscIdsPage() {
                                             children: "End Date"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 420,
+                                            lineNumber: 416,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1149,13 +1138,13 @@ function CscIdsPage() {
                                             className: "bg-slate-700/50 border border-slate-600 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition duration-200"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 423,
+                                            lineNumber: 419,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 419,
+                                    lineNumber: 415,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1166,7 +1155,7 @@ function CscIdsPage() {
                                             children: "Filter"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 432,
+                                            lineNumber: 428,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1174,13 +1163,13 @@ function CscIdsPage() {
                                             children: "Filter"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 435,
+                                            lineNumber: 431,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 431,
+                                    lineNumber: 427,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1191,7 +1180,7 @@ function CscIdsPage() {
                                             children: "TopUp Limit"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 442,
+                                            lineNumber: 438,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1201,13 +1190,13 @@ function CscIdsPage() {
                                             className: "bg-slate-700/50 border border-slate-600 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition duration-200"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 445,
+                                            lineNumber: 441,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 441,
+                                    lineNumber: 437,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1218,7 +1207,7 @@ function CscIdsPage() {
                                             children: "Set"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 454,
+                                            lineNumber: 450,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1227,13 +1216,13 @@ function CscIdsPage() {
                                             children: "Set TopUp Limit"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 457,
+                                            lineNumber: 453,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 453,
+                                    lineNumber: 449,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1251,13 +1240,13 @@ function CscIdsPage() {
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 469,
+                                                    lineNumber: 465,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 467,
+                                            lineNumber: 463,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1267,13 +1256,13 @@ function CscIdsPage() {
                                             children: AutoLoading === "ON" ? "Turn Off" : "Turn On"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 474,
+                                            lineNumber: 470,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 466,
+                                    lineNumber: 462,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1284,7 +1273,7 @@ function CscIdsPage() {
                                             children: "Action"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 487,
+                                            lineNumber: 483,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1293,13 +1282,13 @@ function CscIdsPage() {
                                             children: "Add CSC IDs"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 490,
+                                            lineNumber: 486,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 486,
+                                    lineNumber: 482,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1310,7 +1299,7 @@ function CscIdsPage() {
                                             children: "Import"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 499,
+                                            lineNumber: 495,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1324,7 +1313,7 @@ function CscIdsPage() {
                                                     className: "hidden"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 503,
+                                                    lineNumber: 499,
                                                     columnNumber: 17
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
@@ -1333,19 +1322,19 @@ function CscIdsPage() {
                                                     children: "Import from Excel"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 510,
+                                                    lineNumber: 506,
                                                     columnNumber: 17
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 502,
+                                            lineNumber: 498,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 498,
+                                    lineNumber: 494,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1356,7 +1345,7 @@ function CscIdsPage() {
                                             children: "Process"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 520,
+                                            lineNumber: 516,
                                             columnNumber: 15
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1365,24 +1354,24 @@ function CscIdsPage() {
                                             children: "Show Process"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 523,
+                                            lineNumber: 519,
                                             columnNumber: 15
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 519,
+                                    lineNumber: 515,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/loginpage/page.tsx",
-                            lineNumber: 405,
+                            lineNumber: 401,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/loginpage/page.tsx",
-                        lineNumber: 404,
+                        lineNumber: 400,
                         columnNumber: 9
                     }, this),
                     showCscForm && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$csc$2f$CscForm$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -1390,7 +1379,7 @@ function CscIdsPage() {
                         onClose: ()=>setShowCscForm(false)
                     }, void 0, false, {
                         fileName: "[project]/app/loginpage/page.tsx",
-                        lineNumber: 533,
+                        lineNumber: 529,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1405,17 +1394,17 @@ function CscIdsPage() {
                                         className: "w-12 h-12 text-emerald-400"
                                     }, void 0, false, {
                                         fileName: "[project]/app/loginpage/page.tsx",
-                                        lineNumber: 542,
+                                        lineNumber: 538,
                                         columnNumber: 19
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 541,
+                                    lineNumber: 537,
                                     columnNumber: 17
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/app/loginpage/page.tsx",
-                                lineNumber: 540,
+                                lineNumber: 536,
                                 columnNumber: 15
                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("table", {
                                 className: "w-full",
@@ -1429,7 +1418,7 @@ function CscIdsPage() {
                                                     children: "Sr. No"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 549,
+                                                    lineNumber: 545,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1437,7 +1426,7 @@ function CscIdsPage() {
                                                     children: "CSC ID"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 552,
+                                                    lineNumber: 548,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1445,7 +1434,7 @@ function CscIdsPage() {
                                                     children: "Balance"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 555,
+                                                    lineNumber: 551,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1453,7 +1442,7 @@ function CscIdsPage() {
                                                     children: "Payments"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 558,
+                                                    lineNumber: 554,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1461,7 +1450,7 @@ function CscIdsPage() {
                                                     children: "Digi Login"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 561,
+                                                    lineNumber: 557,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1469,7 +1458,7 @@ function CscIdsPage() {
                                                     children: "Status"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 564,
+                                                    lineNumber: 560,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1477,7 +1466,15 @@ function CscIdsPage() {
                                                     children: "Start Loading"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 567,
+                                                    lineNumber: 563,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
+                                                    className: "px-6 py-4 text-left font-bold text-sm",
+                                                    children: "Transactions History"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/loginpage/page.tsx",
+                                                    lineNumber: 566,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1485,7 +1482,7 @@ function CscIdsPage() {
                                                     children: "Actions"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 570,
+                                                    lineNumber: 569,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("th", {
@@ -1493,18 +1490,18 @@ function CscIdsPage() {
                                                     children: "Session"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 573,
+                                                    lineNumber: 572,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 548,
+                                            lineNumber: 544,
                                             columnNumber: 19
                                         }, this)
                                     }, void 0, false, {
                                         fileName: "[project]/app/loginpage/page.tsx",
-                                        lineNumber: 547,
+                                        lineNumber: 543,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tbody", {
@@ -1520,7 +1517,7 @@ function CscIdsPage() {
                                                             className: "w-16 h-16 mb-4 text-slate-500"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/loginpage/page.tsx",
-                                                            lineNumber: 584,
+                                                            lineNumber: 583,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1528,7 +1525,7 @@ function CscIdsPage() {
                                                             children: "No CSC IDs Found"
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/loginpage/page.tsx",
-                                                            lineNumber: 585,
+                                                            lineNumber: 584,
                                                             columnNumber: 27
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1536,23 +1533,23 @@ function CscIdsPage() {
                                                             children: 'Click "Add CSC IDs" to get started'
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/loginpage/page.tsx",
-                                                            lineNumber: 588,
+                                                            lineNumber: 587,
                                                             columnNumber: 27
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 583,
+                                                    lineNumber: 582,
                                                     columnNumber: 25
                                                 }, this)
                                             }, void 0, false, {
                                                 fileName: "[project]/app/loginpage/page.tsx",
-                                                lineNumber: 582,
+                                                lineNumber: 581,
                                                 columnNumber: 23
                                             }, this)
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 581,
+                                            lineNumber: 580,
                                             columnNumber: 21
                                         }, this) : cscData.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("tr", {
                                                 className: "hover:bg-slate-700/50 transition duration-200 border-slate-700",
@@ -1562,7 +1559,7 @@ function CscIdsPage() {
                                                         children: index + 1
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/loginpage/page.tsx",
-                                                        lineNumber: 600,
+                                                        lineNumber: 599,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1572,12 +1569,12 @@ function CscIdsPage() {
                                                             children: item.cscId
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/loginpage/page.tsx",
-                                                            lineNumber: 604,
+                                                            lineNumber: 603,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/loginpage/page.tsx",
-                                                        lineNumber: 603,
+                                                        lineNumber: 602,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1590,7 +1587,7 @@ function CscIdsPage() {
                                                                     children: item.currentBalance
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                                    lineNumber: 610,
+                                                                    lineNumber: 609,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 balanceLoading[item.cscId] && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1598,18 +1595,18 @@ function CscIdsPage() {
                                                                     children: "(loading...)"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                                    lineNumber: 621,
+                                                                    lineNumber: 620,
                                                                     columnNumber: 31
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/loginpage/page.tsx",
-                                                            lineNumber: 609,
+                                                            lineNumber: 608,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/loginpage/page.tsx",
-                                                        lineNumber: 608,
+                                                        lineNumber: 607,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1617,7 +1614,7 @@ function CscIdsPage() {
                                                         children: item.payment
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/loginpage/page.tsx",
-                                                        lineNumber: 627,
+                                                        lineNumber: 626,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1632,7 +1629,7 @@ function CscIdsPage() {
                                                                         className: "w-4 h-4 animate-spin"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/loginpage/page.tsx",
-                                                                        lineNumber: 652,
+                                                                        lineNumber: 651,
                                                                         columnNumber: 33
                                                                     }, this),
                                                                     " ",
@@ -1644,7 +1641,7 @@ function CscIdsPage() {
                                                                         className: "w-4 h-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/loginpage/page.tsx",
-                                                                        lineNumber: 657,
+                                                                        lineNumber: 656,
                                                                         columnNumber: 33
                                                                     }, this),
                                                                     " Digi"
@@ -1652,12 +1649,12 @@ function CscIdsPage() {
                                                             }, void 0, true)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/loginpage/page.tsx",
-                                                            lineNumber: 641,
+                                                            lineNumber: 640,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/loginpage/page.tsx",
-                                                        lineNumber: 640,
+                                                        lineNumber: 639,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1672,7 +1669,7 @@ function CscIdsPage() {
                                                                         className: "w-4 h-4 animate-spin"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/loginpage/page.tsx",
-                                                                        lineNumber: 679,
+                                                                        lineNumber: 678,
                                                                         columnNumber: 33
                                                                     }, this),
                                                                     "Updating..."
@@ -1683,7 +1680,7 @@ function CscIdsPage() {
                                                                         className: "w-4 h-4"
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/app/loginpage/page.tsx",
-                                                                        lineNumber: 684,
+                                                                        lineNumber: 683,
                                                                         columnNumber: 33
                                                                     }, this),
                                                                     item.status_new
@@ -1691,12 +1688,12 @@ function CscIdsPage() {
                                                             }, void 0, true)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/loginpage/page.tsx",
-                                                            lineNumber: 664,
+                                                            lineNumber: 663,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/loginpage/page.tsx",
-                                                        lineNumber: 663,
+                                                        lineNumber: 662,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1709,17 +1706,45 @@ function CscIdsPage() {
                                                                 className: "w-5 h-5"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/loginpage/page.tsx",
-                                                                lineNumber: 696,
+                                                                lineNumber: 695,
                                                                 columnNumber: 29
                                                             }, this)
                                                         }, void 0, false, {
                                                             fileName: "[project]/app/loginpage/page.tsx",
-                                                            lineNumber: 691,
+                                                            lineNumber: 690,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/loginpage/page.tsx",
-                                                        lineNumber: 690,
+                                                        lineNumber: 689,
+                                                        columnNumber: 25
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
+                                                        className: "px-6 py-4",
+                                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                            onClick: ()=>{
+                                                                setSelecteCscId(item.cscId);
+                                                                setShowPopup(true);
+                                                            },
+                                                            className: "bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white px-4 py-2 rounded-lg font-bold shadow-lg transition duration-300 transform hover:scale-105 flex items-center gap-2",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$eye$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Eye$3e$__["Eye"], {
+                                                                    className: "w-4 h-4"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/app/loginpage/page.tsx",
+                                                                    lineNumber: 707,
+                                                                    columnNumber: 29
+                                                                }, this),
+                                                                " View"
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/app/loginpage/page.tsx",
+                                                            lineNumber: 700,
+                                                            columnNumber: 27
+                                                        }, this)
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/loginpage/page.tsx",
+                                                        lineNumber: 699,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1733,12 +1758,12 @@ function CscIdsPage() {
                                                                     className: "w-4 h-4"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                                    lineNumber: 705,
+                                                                    lineNumber: 719,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/loginpage/page.tsx",
-                                                                lineNumber: 700,
+                                                                lineNumber: 714,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1749,12 +1774,12 @@ function CscIdsPage() {
                                                                     className: "w-4 h-4"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                                    lineNumber: 712,
+                                                                    lineNumber: 726,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/loginpage/page.tsx",
-                                                                lineNumber: 707,
+                                                                lineNumber: 721,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1765,18 +1790,18 @@ function CscIdsPage() {
                                                                     className: "w-4 h-4"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                                    lineNumber: 719,
+                                                                    lineNumber: 733,
                                                                     columnNumber: 29
                                                                 }, this)
                                                             }, void 0, false, {
                                                                 fileName: "[project]/app/loginpage/page.tsx",
-                                                                lineNumber: 714,
+                                                                lineNumber: 728,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/app/loginpage/page.tsx",
-                                                        lineNumber: 699,
+                                                        lineNumber: 713,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("td", {
@@ -1792,52 +1817,52 @@ function CscIdsPage() {
                                                                     className: "w-4 h-4"
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                                    lineNumber: 730,
+                                                                    lineNumber: 746,
                                                                     columnNumber: 29
                                                                 }, this),
                                                                 " View"
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/app/loginpage/page.tsx",
-                                                            lineNumber: 723,
+                                                            lineNumber: 739,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/app/loginpage/page.tsx",
-                                                        lineNumber: 722,
+                                                        lineNumber: 738,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, item.id, true, {
                                                 fileName: "[project]/app/loginpage/page.tsx",
-                                                lineNumber: 596,
+                                                lineNumber: 595,
                                                 columnNumber: 23
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/app/loginpage/page.tsx",
-                                        lineNumber: 579,
+                                        lineNumber: 578,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/app/loginpage/page.tsx",
-                                lineNumber: 546,
+                                lineNumber: 542,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/loginpage/page.tsx",
-                            lineNumber: 538,
+                            lineNumber: 534,
                             columnNumber: 11
                         }, this)
                     }, void 0, false, {
                         fileName: "[project]/app/loginpage/page.tsx",
-                        lineNumber: 537,
+                        lineNumber: 533,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/loginpage/page.tsx",
-                lineNumber: 392,
+                lineNumber: 388,
                 columnNumber: 7
             }, this),
             showEditModal && editingItem && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1852,14 +1877,14 @@ function CscIdsPage() {
                                     className: "w-6 h-6 text-yellow-400"
                                 }, void 0, false, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 748,
+                                    lineNumber: 767,
                                     columnNumber: 15
                                 }, this),
                                 "Edit CSC ID"
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/loginpage/page.tsx",
-                            lineNumber: 747,
+                            lineNumber: 766,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1872,7 +1897,7 @@ function CscIdsPage() {
                                             children: "CSC ID"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 754,
+                                            lineNumber: 773,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1885,13 +1910,13 @@ function CscIdsPage() {
                                             className: "w-full bg-slate-700/50 border border-slate-600 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 757,
+                                            lineNumber: 776,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 753,
+                                    lineNumber: 772,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1901,7 +1926,7 @@ function CscIdsPage() {
                                             children: "Password"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 768,
+                                            lineNumber: 787,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -1914,13 +1939,13 @@ function CscIdsPage() {
                                             className: "w-full bg-slate-700/50 border border-slate-600 text-white rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 771,
+                                            lineNumber: 790,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 767,
+                                    lineNumber: 786,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1930,7 +1955,7 @@ function CscIdsPage() {
                                             children: "Status"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 782,
+                                            lineNumber: 801,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
@@ -1946,7 +1971,7 @@ function CscIdsPage() {
                                                     children: "ACTIVE"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 795,
+                                                    lineNumber: 814,
                                                     columnNumber: 19
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
@@ -1954,25 +1979,25 @@ function CscIdsPage() {
                                                     children: "INACTIVE"
                                                 }, void 0, false, {
                                                     fileName: "[project]/app/loginpage/page.tsx",
-                                                    lineNumber: 796,
+                                                    lineNumber: 815,
                                                     columnNumber: 19
                                                 }, this)
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 785,
+                                            lineNumber: 804,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 781,
+                                    lineNumber: 800,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/loginpage/page.tsx",
-                            lineNumber: 752,
+                            lineNumber: 771,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1984,7 +2009,7 @@ function CscIdsPage() {
                                     children: "Save Changes"
                                 }, void 0, false, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 802,
+                                    lineNumber: 821,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1996,24 +2021,24 @@ function CscIdsPage() {
                                     children: "Cancel"
                                 }, void 0, false, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 808,
+                                    lineNumber: 827,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/loginpage/page.tsx",
-                            lineNumber: 801,
+                            lineNumber: 820,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/loginpage/page.tsx",
-                    lineNumber: 746,
+                    lineNumber: 765,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/loginpage/page.tsx",
-                lineNumber: 745,
+                lineNumber: 764,
                 columnNumber: 9
             }, this),
             iframeUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2031,7 +2056,7 @@ function CscIdsPage() {
                                             children: loginType === "digi" ? "🔐 Digi Login" : "🔓 Normal Login"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 828,
+                                            lineNumber: 847,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2039,13 +2064,13 @@ function CscIdsPage() {
                                             children: "Secure Session"
                                         }, void 0, false, {
                                             fileName: "[project]/app/loginpage/page.tsx",
-                                            lineNumber: 831,
+                                            lineNumber: 850,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 827,
+                                    lineNumber: 846,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -2057,13 +2082,13 @@ function CscIdsPage() {
                                     children: "✕"
                                 }, void 0, false, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 833,
+                                    lineNumber: 852,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/loginpage/page.tsx",
-                            lineNumber: 826,
+                            lineNumber: 845,
                             columnNumber: 13
                         }, this),
                         iframeLoading && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2073,7 +2098,7 @@ function CscIdsPage() {
                                     className: "w-14 h-14 border-4 border-emerald-300 border-t-emerald-600 rounded-full animate-spin"
                                 }, void 0, false, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 846,
+                                    lineNumber: 865,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -2081,13 +2106,13 @@ function CscIdsPage() {
                                     children: "Loading Portal..."
                                 }, void 0, false, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 847,
+                                    lineNumber: 866,
                                     columnNumber: 17
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/loginpage/page.tsx",
-                            lineNumber: 845,
+                            lineNumber: 864,
                             columnNumber: 15
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2101,12 +2126,12 @@ function CscIdsPage() {
                                 sandbox: "allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation"
                             }, iframeUrl, false, {
                                 fileName: "[project]/app/loginpage/page.tsx",
-                                lineNumber: 854,
+                                lineNumber: 873,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/app/loginpage/page.tsx",
-                            lineNumber: 853,
+                            lineNumber: 872,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -2119,24 +2144,24 @@ function CscIdsPage() {
                                     children: loginType === "digi" ? "Digi Login" : "Normal Login"
                                 }, void 0, false, {
                                     fileName: "[project]/app/loginpage/page.tsx",
-                                    lineNumber: 867,
+                                    lineNumber: 886,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/app/loginpage/page.tsx",
-                            lineNumber: 865,
+                            lineNumber: 884,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/app/loginpage/page.tsx",
-                    lineNumber: 825,
+                    lineNumber: 844,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/app/loginpage/page.tsx",
-                lineNumber: 824,
+                lineNumber: 843,
                 columnNumber: 9
             }, this),
             showModal && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$csc$2f$CscModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2144,7 +2169,7 @@ function CscIdsPage() {
                 onClose: ()=>setShowModal(false)
             }, void 0, false, {
                 fileName: "[project]/app/loginpage/page.tsx",
-                lineNumber: 877,
+                lineNumber: 896,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$Login$2f$ProcessModal$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
@@ -2152,13 +2177,21 @@ function CscIdsPage() {
                 onClose: ()=>setShowProcess(false)
             }, void 0, false, {
                 fileName: "[project]/app/loginpage/page.tsx",
-                lineNumber: 883,
+                lineNumber: 902,
                 columnNumber: 7
+            }, this),
+            showPopup && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TransactionHistoryPopup, {
+                cscId: "422736110017",
+                onClose: ()=>setShowPopup(false)
+            }, void 0, false, {
+                fileName: "[project]/app/loginpage/page.tsx",
+                lineNumber: 908,
+                columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/loginpage/page.tsx",
-        lineNumber: 391,
+        lineNumber: 387,
         columnNumber: 5
     }, this);
 }
