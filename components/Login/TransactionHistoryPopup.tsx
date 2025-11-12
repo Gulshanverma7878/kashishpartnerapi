@@ -2,7 +2,7 @@
 
 import { Eye, History, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import TransactionModal from "./TransactionModal";
+import TransactionModal, { TransactionDetails } from "./TransactionModal";
 import StatusModal from "./StatusModal";
 
 // 🧾 Define the type of each transaction
@@ -12,11 +12,8 @@ interface Ledger {
   csc_id: string;
   txn_mode: string;
   creation_date: string;
-  detailData?: {
-    details?: {
-      txn_status?: string;
-      txn_remarks?: string;
-    };
+  detailData: {
+    details: TransactionDetails
   };
 }
 
@@ -37,9 +34,11 @@ export default function TransactionHistoryPopup({
   const [open, setOpen] = useState<boolean>(false);
   const [liveOpen, setLiveOpen] = useState<boolean>(false);
   const [selectedTxnId, setSelectedTxnId] = useState<string | null>(null);
+  const [data1, setData1] = useState<TransactionDetails | null>(null);
 
-  const handleOpen = (txnId: string) => {
+  const handleOpen = (txnId: string, p2: TransactionDetails) => {
     setSelectedTxnId(txnId);
+    setData1(p2);
     setOpen(true);
   };
   const handleLiveOpen = (txnId: string) => {
@@ -189,7 +188,9 @@ export default function TransactionHistoryPopup({
                         </td>
                         <td className="px-6 py-4 border border-gray-300 text-center flex justify-center items-center">
                           <button
-                            onClick={() => handleOpen(txn.csc_txn)}
+                            onClick={() =>
+                              handleOpen(txn.csc_txn, txn?.detailData?.details)
+                            }
                             className="bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white px-4 py-2 rounded-lg font-bold shadow-lg transition duration-300 transform hover:scale-105 flex items-center gap-2"
                           >
                             <Eye className="w-4 h-4" /> Detail
@@ -217,6 +218,7 @@ export default function TransactionHistoryPopup({
         onClose={handleClose}
         txnId={selectedTxnId}
         cscId={cscId}
+        data={data1}
       />
       <StatusModal
         open={liveOpen}

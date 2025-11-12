@@ -167,6 +167,19 @@ const Sidebar = ({
               )}
             </Link>
           </li>
+          <li>
+            <Link
+              href="/documentation"
+              className={`flex items-center p-3 rounded-lg transition-all duration-200 ${
+                sidebarOpen || hoveredSidebar ? "px-4" : "px-3 justify-center"
+              } hover:bg-blue-50`}
+            >
+              <FaGift className="text-lg min-w-[24px]" />
+              {(sidebarOpen || hoveredSidebar) && (
+                <span className="ml-3 whitespace-nowrap">Commision</span>
+              )}
+            </Link>
+          </li>
 
           {/* My Profile */}
           <li>

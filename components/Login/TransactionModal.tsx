@@ -6,9 +6,10 @@ interface TransactionModalProps {
   onClose: () => void;
   txnId: string | null;
   cscId: string;
+  data:TransactionDetails | null;
 }
 
-interface TransactionDetails {
+export interface TransactionDetails {
   csc_txn?: string;
   txn_session_id?: string;
   csc_id?: string;
@@ -34,46 +35,47 @@ export default function TransactionModal({
   onClose,
   txnId,
   cscId,
+  data
 }: TransactionModalProps) {
-  const [data, setData] = useState<TransactionDetails | null>(null);
+//   const [data, setData] = useState<TransactionDetails | null>(null);
   const [message, setMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (!txnId || !open) return;
+//   useEffect(() => {
+//     if (!txnId || !open) return;
 
-    const fetchDetails = async () => {
-      setLoading(true);
-      setError(null);
-      setData(null);
-      setMessage(null);
+//     const fetchDetails = async () => {
+//       setLoading(true);
+//       setError(null);
+//       setData(null);
+//       setMessage(null);
 
-      try {
-        const res = await fetch(
-          `https://api.partner.kashishindiapvtltd.com/api/history-details?txn_id=${txnId}&csc_id=${cscId}`
-        );
+//       try {
+//         const res = await fetch(
+//           `https://api.partner.kashishindiapvtltd.com/api/history-details?txn_id=${txnId}&csc_id=${cscId}`
+//         );
 
-        if (!res.ok) throw new Error("Failed to fetch transaction details");
+//         if (!res.ok) throw new Error("Failed to fetch transaction details");
 
-        const result = await res.json();
+//         const result = await res.json();
 
-        if (result.data?.details) {
-          setData(result.data.details);
-        } else if (result.message) {
-          setMessage(result.message);
-        } else {
-          setMessage("No transaction details found.");
-        }
-      } catch (err: any) {
-        setError(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
+//         if (result.data?.details) {
+//           setData(result.data.details);
+//         } else if (result.message) {
+//           setMessage(result.message);
+//         } else {
+//           setMessage("No transaction details found.");
+//         }
+//       } catch (err: any) {
+//         setError(err.message);
+//       } finally {
+//         setLoading(false);
+//       }
+//     };
 
-    fetchDetails();
-  }, [txnId, open, cscId]);
+//     fetchDetails();
+//   }, [txnId, open, cscId]);
 
   if (!open) return null;
 
